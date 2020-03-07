@@ -2,9 +2,10 @@
 
 # Form implementation generated from reading ui file 'FlashLapse_CP.ui'
 #
-# Created by: PyQt5 UI code generator 5.12.2
+# Created by: PyQt5 UI code generator 5.13.2
 #
 # WARNING! All changes made in this file will be lost!
+
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
@@ -12,7 +13,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1000, 670)
+        MainWindow.resize(1280, 690)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -152,7 +153,8 @@ class Ui_MainWindow(object):
         self.Start_label.setObjectName("Start_label")
         self.verticalLayout_18.addWidget(self.Start_label)
         self.Start_spinBox = QtWidgets.QSpinBox(self.horizontalLayoutWidget_4)
-        self.Start_spinBox.setMaximum(58)
+        self.Start_spinBox.setMinimum(1)
+        self.Start_spinBox.setMaximum(19)
         self.Start_spinBox.setObjectName("Start_spinBox")
         self.verticalLayout_18.addWidget(self.Start_spinBox)
         self.horizontalLayout_5.addLayout(self.verticalLayout_18)
@@ -162,9 +164,9 @@ class Ui_MainWindow(object):
         self.End_label.setObjectName("End_label")
         self.verticalLayout_19.addWidget(self.End_label)
         self.End_spinBox = QtWidgets.QSpinBox(self.horizontalLayoutWidget_4)
-        self.End_spinBox.setMinimum(1)
-        self.End_spinBox.setMaximum(58)
-        self.End_spinBox.setProperty("value", 58)
+        self.End_spinBox.setMinimum(2)
+        self.End_spinBox.setMaximum(19)
+        self.End_spinBox.setProperty("value", 19)
         self.End_spinBox.setObjectName("End_spinBox")
         self.verticalLayout_19.addWidget(self.End_spinBox)
         self.horizontalLayout_5.addLayout(self.verticalLayout_19)
@@ -601,7 +603,7 @@ class Ui_MainWindow(object):
         self.motorConfirm_pushButton.setObjectName("motorConfirm_pushButton")
         self.verticalLayout_22.addWidget(self.motorConfirm_pushButton)
         self.verticalLayoutWidget_5 = QtWidgets.QWidget(self.Misc_Frame)
-        self.verticalLayoutWidget_5.setGeometry(QtCore.QRect(240, 10, 136, 114))
+        self.verticalLayoutWidget_5.setGeometry(QtCore.QRect(240, 10, 138, 114))
         self.verticalLayoutWidget_5.setObjectName("verticalLayoutWidget_5")
         self.verticalLayout_13 = QtWidgets.QVBoxLayout(self.verticalLayoutWidget_5)
         self.verticalLayout_13.setContentsMargins(0, 0, 0, 0)
@@ -703,7 +705,7 @@ class Ui_MainWindow(object):
         self.Cycle_label.setText(_translate("MainWindow", "Cycle Duration:"))
         self.powerCycle_spinBox.setSuffix(_translate("MainWindow", " min"))
         self.confirmCycle_pushButton.setText(_translate("MainWindow", "CONFIRM"))
-        self.Modes_label.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-weight:600;\">Modes</span></p></body></html>"))
+        self.Modes_label.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-weight:600;\">Demos</span></p></body></html>"))
         self.disco_spinBox.setSuffix(_translate("MainWindow", " ms"))
         self.disco_pushButton.setText(_translate("MainWindow", "Disco"))
         self.rainbow_spinBox.setSuffix(_translate("MainWindow", " ms"))
@@ -786,5 +788,3 @@ class Ui_MainWindow(object):
         self.actionOpen_Directory.setText(_translate("MainWindow", "Open Directory"))
         self.actionExit.setText(_translate("MainWindow", "Exit"))
         self.actionCreate_Timelapse.setText(_translate("MainWindow", "Create Timelapse"))
-
-

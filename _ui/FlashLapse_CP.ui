@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1000</width>
-    <height>670</height>
+    <width>1280</width>
+    <height>690</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -27,7 +27,7 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>../_image/icon.png</normaloff>../_image/icon.png</iconset>
+    <normaloff>../_image/logo.ico</normaloff>../_image/logo.ico</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="Image_Frame">
@@ -173,7 +173,7 @@
         </rect>
        </property>
        <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Modes&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Demos&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
       </widget>
       <widget class="QWidget" name="verticalLayoutWidget_3">
@@ -411,8 +411,11 @@
             <property name="prefix">
              <string># </string>
             </property>
+            <property name="minimum">
+             <number>1</number>
+            </property>
             <property name="maximum">
-             <number>58</number>
+             <number>19</number>
             </property>
            </widget>
           </item>
@@ -433,13 +436,13 @@
              <string># </string>
             </property>
             <property name="minimum">
-             <number>1</number>
+             <number>2</number>
             </property>
             <property name="maximum">
-             <number>58</number>
+             <number>19</number>
             </property>
             <property name="value">
-             <number>58</number>
+             <number>19</number>
             </property>
            </widget>
           </item>
@@ -1581,7 +1584,7 @@
       <rect>
        <x>240</x>
        <y>10</y>
-       <width>136</width>
+       <width>138</width>
        <height>114</height>
       </rect>
      </property>
