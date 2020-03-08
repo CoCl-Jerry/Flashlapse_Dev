@@ -5,7 +5,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from time import sleep
 
 def light_confirm(self):
-    current_CMD = str(self.Start_spinBox.value()-1)+"~"+str(self.End_spinBox.value()-1)+"~"+ str(self.R_spinBox.value()) + "~" + str(self.G_spinBox.value()) + "~" + str(self.B_spinBox.value())+ "~"+ str(self.W_spinBox.value())+ "~" + str(self.BRT_spinBox.value())+"\n4\n"
+    current_CMD = str((self.Start_spinBox.value()-1))+"~"+str((self.End_spinBox.value()-1))+"~"+ str(self.R_spinBox.value()) + "~" + str(self.G_spinBox.value()) + "~" + str(self.B_spinBox.value())+ "~"+ str(self.W_spinBox.value())+ "~" + str(self.BRT_spinBox.value())+"\n4\n"
     Settings.commands_list.append("3~"+current_CMD)
     Settings.ASD.write(bytes("1~"+current_CMD, 'UTF-8'))
     
@@ -16,6 +16,7 @@ def light_reset(self):
     self.R_spinBox.setValue(0)
     self.G_spinBox.setValue(0) 
     self.B_spinBox.setValue(0)
+    self.W_spinBox.setValue(0)
     self.Start_spinBox.setValue(1)
     self.End_spinBox.setValue(19)
     self.BRT_spinBox.setValue(20)
