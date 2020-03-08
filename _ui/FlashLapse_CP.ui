@@ -33,10 +33,10 @@
    <widget class="QLabel" name="Image_Frame">
     <property name="geometry">
      <rect>
-      <x>600</x>
+      <x>859</x>
       <y>20</y>
-      <width>380</width>
-      <height>380</height>
+      <width>390</width>
+      <height>390</height>
      </rect>
     </property>
     <property name="cursor">
@@ -66,8 +66,8 @@
      <rect>
       <x>20</x>
       <y>20</y>
-      <width>561</width>
-      <height>611</height>
+      <width>820</width>
+      <height>620</height>
      </rect>
     </property>
     <property name="tabPosition">
@@ -86,7 +86,7 @@
      <widget class="QFrame" name="frame_2">
       <property name="geometry">
        <rect>
-        <x>390</x>
+        <x>640</x>
         <y>20</y>
         <width>141</width>
         <height>531</height>
@@ -316,8 +316,8 @@
        <rect>
         <x>20</x>
         <y>20</y>
-        <width>361</width>
-        <height>341</height>
+        <width>601</width>
+        <height>351</height>
        </rect>
       </property>
       <property name="frameShape">
@@ -329,10 +329,10 @@
       <widget class="QLabel" name="coreImage">
        <property name="geometry">
         <rect>
-         <x>30</x>
+         <x>140</x>
          <y>20</y>
-         <width>300</width>
-         <height>300</height>
+         <width>321</width>
+         <height>321</height>
         </rect>
        </property>
        <property name="text">
@@ -350,8 +350,8 @@
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>370</y>
-        <width>361</width>
+        <y>390</y>
+        <width>601</width>
         <height>181</height>
        </rect>
       </property>
@@ -392,7 +392,7 @@
         <rect>
          <x>20</x>
          <y>19</y>
-         <width>321</width>
+         <width>561</width>
          <height>51</height>
         </rect>
        </property>
@@ -485,11 +485,21 @@
         <rect>
          <x>10</x>
          <y>90</y>
-         <width>331</width>
+         <width>581</width>
          <height>41</height>
         </rect>
        </property>
        <layout class="QGridLayout" name="gridLayout">
+        <item row="0" column="5">
+         <widget class="QSpinBox" name="B_spinBox">
+          <property name="suffix">
+           <string> %</string>
+          </property>
+          <property name="maximum">
+           <number>100</number>
+          </property>
+         </widget>
+        </item>
         <item row="0" column="2">
          <widget class="QLabel" name="G_label">
           <property name="text">
@@ -507,6 +517,20 @@
           </property>
          </widget>
         </item>
+        <item row="0" column="0">
+         <widget class="QLabel" name="R_label">
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Red:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="6">
+         <widget class="QLabel" name="W_label">
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;White:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
         <item row="0" column="3">
          <widget class="QSpinBox" name="G_spinBox">
           <property name="suffix">
@@ -517,13 +541,6 @@
           </property>
          </widget>
         </item>
-        <item row="0" column="0">
-         <widget class="QLabel" name="R_label">
-          <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Red:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-          </property>
-         </widget>
-        </item>
         <item row="0" column="4">
          <widget class="QLabel" name="B_label">
           <property name="text">
@@ -531,8 +548,8 @@
           </property>
          </widget>
         </item>
-        <item row="0" column="5">
-         <widget class="QSpinBox" name="B_spinBox">
+        <item row="0" column="7">
+         <widget class="QSpinBox" name="W_spinBox">
           <property name="suffix">
            <string> %</string>
           </property>
@@ -546,7 +563,7 @@
       <widget class="QWidget" name="horizontalLayoutWidget">
        <property name="geometry">
         <rect>
-         <x>89</x>
+         <x>220</x>
          <y>130</y>
          <width>171</width>
          <height>41</height>
@@ -1068,6 +1085,11 @@
       </property>
      </widget>
     </widget>
+    <widget class="QWidget" name="preset_tab">
+     <attribute name="title">
+      <string>Preset</string>
+     </attribute>
+    </widget>
     <widget class="QWidget" name="imaging_tab">
      <attribute name="title">
       <string>Imaging</string>
@@ -1077,7 +1099,7 @@
        <rect>
         <x>20</x>
         <y>420</y>
-        <width>281</width>
+        <width>391</width>
         <height>54</height>
        </rect>
       </property>
@@ -1153,7 +1175,7 @@
      <widget class="QLabel" name="resolution_label">
       <property name="geometry">
        <rect>
-        <x>45</x>
+        <x>100</x>
         <y>390</y>
         <width>231</width>
         <height>31</height>
@@ -1166,9 +1188,9 @@
      <widget class="QLabel" name="format_label">
       <property name="geometry">
        <rect>
-        <x>310</x>
+        <x>560</x>
         <y>390</y>
-        <width>231</width>
+        <width>201</width>
         <height>31</height>
        </rect>
       </property>
@@ -1181,7 +1203,7 @@
        <rect>
         <x>20</x>
         <y>500</y>
-        <width>511</width>
+        <width>771</width>
         <height>61</height>
        </rect>
       </property>
@@ -1208,7 +1230,7 @@
      <widget class="QWidget" name="horizontalLayoutWidget_6">
       <property name="geometry">
        <rect>
-        <x>330</x>
+        <x>560</x>
         <y>420</y>
         <width>201</width>
         <height>51</height>
@@ -1242,7 +1264,7 @@
        <rect>
         <x>20</x>
         <y>260</y>
-        <width>521</width>
+        <width>771</width>
         <height>131</height>
        </rect>
       </property>
@@ -1258,7 +1280,7 @@
          <rect>
           <x>19</x>
           <y>11</y>
-          <width>461</width>
+          <width>721</width>
           <height>81</height>
          </rect>
         </property>
@@ -1381,7 +1403,7 @@
        <rect>
         <x>20</x>
         <y>20</y>
-        <width>509</width>
+        <width>771</width>
         <height>221</height>
        </rect>
       </property>
@@ -1502,7 +1524,7 @@
        <rect>
         <x>40</x>
         <y>480</y>
-        <width>471</width>
+        <width>721</width>
         <height>20</height>
        </rect>
       </property>
@@ -1515,10 +1537,10 @@
    <widget class="QFrame" name="Misc_Frame">
     <property name="geometry">
      <rect>
-      <x>600</x>
-      <y>410</y>
-      <width>381</width>
-      <height>221</height>
+      <x>860</x>
+      <y>420</y>
+      <width>390</width>
+      <height>220</height>
      </rect>
     </property>
     <property name="frameShape">
