@@ -439,10 +439,10 @@
              <number>2</number>
             </property>
             <property name="maximum">
-             <number>19</number>
+             <number>20</number>
             </property>
             <property name="value">
-             <number>19</number>
+             <number>20</number>
             </property>
            </widget>
           </item>
