@@ -69,7 +69,7 @@ def update_frame_alt(self,file):
     self.Image_Frame.setPixmap(QtGui.QPixmap(temp_img))
     if(Settings.image_format):
         os.system("gpicview ../_temp/preview.jpg")
-    else
+    else:
         os.system("gpicview ../_temp/preview.png")
     
 def update_frame_snap(self,file):
