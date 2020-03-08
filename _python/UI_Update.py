@@ -59,8 +59,8 @@ def timelapse_enable(self):
 def update_frame(self,file):
     self.Misc_Frame.setEnabled(True)
     temp_img = PyQt5.QtGui.QImage(file)
-    self.Progress_Label.setText("Progress: "+str(Settings.current) + "/" + str(Settings.total))
-    self.Progress_Bar.setValue(Settings.current)
+    self.Progress_Label.setText("Progress: "+str(Settings.current+1) + "/" + str(Settings.total))
+    self.Progress_Bar.setValue(Settings.current+1)
     self.Image_Frame.setPixmap(QtGui.QPixmap(temp_img))
 
 def update_frame_alt(self,file):

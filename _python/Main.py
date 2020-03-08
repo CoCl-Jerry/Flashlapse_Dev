@@ -234,8 +234,8 @@ class MainWindow(QMainWindow, FlashLapse_UI.Ui_MainWindow):
         file.close()
 
     def zoomSliderChange(self):
-        self.xAxis_label.setText("Width: "+ str(self.xAxis_horizontalSlider.sliderPosition()/100))
-        self.yAxis_label.setText("Width: "+ str(self.yAxis_horizontalSlider.sliderPosition()/100))
+        self.xAxis_label.setText("AXIS A: "+ str(self.xAxis_horizontalSlider.sliderPosition()/100))
+        self.yAxis_label.setText("AXIS B: "+ str(self.yAxis_horizontalSlider.sliderPosition()/100))
 
     def img_format(self):
         if(self.JPG_radioButton.isChecked()):
