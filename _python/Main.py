@@ -238,7 +238,7 @@ class MainWindow(QMainWindow, FlashLapse_UI.Ui_MainWindow):
         self.yAxis_label.setText("Width: "+ str(self.yAxis_horizontalSlider.sliderPosition()/100))
 
     def img_format(self):
-        if(JPG_radioButton.isChecked()):
+        if(self.JPG_radioButton.isChecked()):
             Settings.image_format = 1
         else:
             Settings.image_format = 0
