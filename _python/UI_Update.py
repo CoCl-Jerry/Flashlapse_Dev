@@ -1,6 +1,7 @@
 import Settings
 import Commands
 import PyQt5
+import os
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 def LED_validate(self):
@@ -46,26 +47,32 @@ def timelapse_disable(self):
         self.startRoutines_pushButton.setText("End CLOUD Image Sequence")
     else:
         self.startRoutines_pushButton.setText("End LOCAL Image Sequence")
-    self.snapshot_pushButton.setEnabled(False)
-    self.liveFeed_pushButton.setEnabled(False)
-    self.preview_pushButton.setEnabled(False)
-    self.rotate_pushButton.setEnabled(False)
-    self.xAxis_horizontalSlider.setEnabled(False)
-    self.yAxis_horizontalSlider.setEnabled(False)
+    self.Misc_Frame.setEnabled(False)
 
 def timelapse_enable(self):
     if(Settings.storage_mode):
         self.startRoutines_pushButton.setText("Start CLOUD Image Sequence")
     else:
         self.startRoutines_pushButton.setText("Start LOCAL Image Sequence")
-    self.snapshot_pushButton.setEnabled(True)
-    self.liveFeed_pushButton.setEnabled(True)
-    self.preview_pushButton.setEnabled(True)
-    self.rotate_pushButton.setEnabled(True)
-    self.xAxis_horizontalSlider.setEnabled(True)
-    self.yAxis_horizontalSlider.setEnabled(True)
+    self.Misc_Frame.setEnabled(True)
 
 def update_frame(self,file):
+    self.Misc_Frame.setEnabled(True)
+    temp_img = PyQt5.QtGui.QImage(file)
+    self.Progress_Label.setText("Progress: "+str(Settings.current) + "/" + str(Settings.total))
+    self.Progress_Bar.setValue(Settings.current)
+    self.Image_Frame.setPixmap(QtGui.QPixmap(temp_img))
+
+def update_frame_alt(self,file):
+    self.Misc_Frame.setEnabled(True)
+    temp_img = PyQt5.QtGui.QImage(file)
+    self.Image_Frame.setPixmap(QtGui.QPixmap(temp_img))
+    if(Settings.image_format):
+        os.system("gpicview ../_temp/preview.jpg")
+    else
+        os.system("gpicview ../_temp/preview.png")
+    
+def update_frame_snap(self,file):
     self.Misc_Frame.setEnabled(True)
     temp_img = PyQt5.QtGui.QImage(file)
     self.Image_Frame.setPixmap(QtGui.QPixmap(temp_img))

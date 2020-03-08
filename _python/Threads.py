@@ -60,14 +60,14 @@ class Schedule(QThread):
         
     def run(self):
         while Settings.sch_running:
-            Commands.reflex_to(Settings.angle_1)
+            Commands.motor_rotate(Settings.angle_1)
             for x in range (Settings.delay_1*60):
                 sleep(1)
                 if not Settings.sch_running:
                     break
             
-            Commands.reflex_to(Settings.angle_2*60)
-            for x in range (Settings.delay_2):
+            Commands.motor_rotate(Settings.angle_2)
+            for x in range (Settings.delay_2*60):
                 sleep(1)
                 if not Settings.sch_running:
                     break
@@ -85,13 +85,13 @@ class Test(QThread):
        
     def run(self):
         for x in range (5):
-            Commands.reflex_to(Settings.angle_1)
+            Commands.motor_rotate(Settings.angle_1)
             for x in range (5):
                 sleep(1)
                 if not Settings.test_running:
                     break
             
-            Commands.reflex_to(Settings.angle_2)
+            Commands.motor_rotate(Settings.angle_2)
             for x in range (5):
                 sleep(1)
                 if not Settings.test_running:
@@ -110,7 +110,7 @@ class Snap(QThread):
     def run(self):
         with PiCamera() as camera:
             camera.zoom = (Settings.AOI_X, Settings.AOI_Y, Settings.AOI_W, Settings.AOI_H)
-            camera.resolution = (380,380)
+            camera.resolution = (390,390)
             camera._set_rotation(90*Settings.rotation)
             camera.capture("../_temp/snapshot.jpg")
 
@@ -125,6 +125,8 @@ class Live(QThread):
     def run(self):
         with PiCamera() as camera:
             camera._set_rotation(90*Settings.rotation)
+            camera.zoom = (Settings.AOI_X, Settings.AOI_Y, Settings.AOI_W, Settings.AOI_H)
+            camera.resolution = (Settings.x_resolution,Settings.y_resolution)
             camera.start_preview()
             sleep(Settings.livetime)
 

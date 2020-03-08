@@ -58,7 +58,7 @@ def init(self):
     RPM = 5
 
     global rotation
-    rotation = 0
+    rotation = 2
 
     global AOI_X
     AOI_X = 0
@@ -96,6 +96,9 @@ def init(self):
 
     global total
     total = 6
+
+    global image_format
+    image_format = 1
 
     global current
     current = 0

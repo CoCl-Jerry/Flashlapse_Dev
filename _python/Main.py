@@ -13,12 +13,6 @@ import Threads
 
 #import UI functions
 import UI_Update
-
-
-'''
-
-#import custom functions
-import Camera'''
  
 # import Qt content
 import PyQt5
@@ -91,7 +85,7 @@ class MainWindow(QMainWindow, FlashLapse_UI.Ui_MainWindow):
             self.Camera_update()
             self.Snap_Thread = Threads.Snap()
             self.Snap_Thread.started.connect(lambda: UI_Update.imaging_disable(self))
-            self.Snap_Thread.finished.connect(lambda: UI_Update.update_frame(self,"../_temp/snapshot.jpg"))
+            self.Snap_Thread.finished.connect(lambda: UI_Update.update_frame_snap(self,"../_temp/snapshot.jpg"))
             self.Snap_Thread.start()
             
             
@@ -115,7 +109,10 @@ class MainWindow(QMainWindow, FlashLapse_UI.Ui_MainWindow):
             self.Camera_update()
             self.Preview_Thread = Threads.Preview()
             self.Preview_Thread.started.connect(lambda: UI_Update.imaging_disable(self))
-            self.Preview_Thread.finished.connect(lambda: UI_Update.update_frame(self,"../_temp/preview.jpg"))
+            if(Settings.image_format):
+                self.Preview_Thread.finished.connect(lambda: UI_Update.update_frame_alt(self,"../_temp/preview.jpg"))
+            else:
+                self.Preview_Thread.finished.connect(lambda: UI_Update.update_frame_alt(self,"../_temp/preview.png"))
             self.Preview_Thread.start()
             
         except Exception as e:
@@ -130,8 +127,6 @@ class MainWindow(QMainWindow, FlashLapse_UI.Ui_MainWindow):
         Settings.x_resolution=self.x_resolution_spinBox.value()
         Settings.y_resolution=self.y_resolution_spinBox.value()
 
-
-
     def rotate_image(self):
         try:
             self.Camera_update()
@@ -141,13 +136,17 @@ class MainWindow(QMainWindow, FlashLapse_UI.Ui_MainWindow):
             self.Snap_Thread.finished.connect(lambda: UI_Update.update_frame(self,"../_temp/snapshot.jpg"))
             self.Snap_Thread.start()
             
-            
         except Exception as e:
             print(e)
 
     def start_sequence(self):
-        Settings.file = Settings.full_dir +"/"+Settings.sequence_name+"_%04d.jpg"
-        
+
+        if(Settings.image_format):
+            Settings.file = Settings.full_dir +"/"+Settings.sequence_name+"_%04d.jpg"
+        else:
+            Settings.file = Settings.full_dir +"/"+Settings.sequence_name+"_%04d.png"
+        self.Progress_Bar.setMaximum(Settings.total)
+            
         try:
             if not Settings.timelapse_running:
                 self.Camera_update()
@@ -176,8 +175,6 @@ class MainWindow(QMainWindow, FlashLapse_UI.Ui_MainWindow):
 
             except Exception as e:
                 print(e)
-            
-    
 
     def IST_Edit(self):
         Settings.sequence_name = self.imageTitle_lineEdit.text().replace(" ", "_")
@@ -240,6 +237,12 @@ class MainWindow(QMainWindow, FlashLapse_UI.Ui_MainWindow):
         self.xAxis_label.setText("Width: "+ str(self.xAxis_horizontalSlider.sliderPosition()/100))
         self.yAxis_label.setText("Width: "+ str(self.yAxis_horizontalSlider.sliderPosition()/100))
 
+    def img_format(self):
+        if(JPG_radioButton.isChecked()):
+            Settings.image_format = 1
+        else:
+            Settings.image_format = 0
+
 
         
         
@@ -301,18 +304,10 @@ class MainWindow(QMainWindow, FlashLapse_UI.Ui_MainWindow):
 
         self.storage_tabWidget.currentChanged.connect(lambda: UI_Update.validate_input(self))
         self.startRoutines_pushButton.clicked.connect(lambda: self.start_sequence())
-        
 
+        self.JPG_radioButton.toggled.connect(lambda: self.img_format())
+        self.PNG_radioButton.toggled.connect(lambda: self.img_format())
         
-
-        
-        
-        '''
-        self.Inject_Code.clicked.connect(lambda: Command.inject_code(self))'''
-
-
-        
-
         
 # main function
 def main():

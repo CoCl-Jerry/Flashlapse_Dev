@@ -31,10 +31,6 @@ def deploy_lights():
     for x in Settings.commands_list:
         send_CMD_ALT(x)
 
-def reflex_to(angle):
-    current_CMD = "5~"+str(angle)+"\n"
-    send_CMD_ALT(current_CMD)
-
 def clinoStart(self):
     if not Settings.clino_running:
         Settings.clino_running = True
@@ -93,6 +89,3 @@ def motorSliderRelease(self):
 def motor_rotate(self):
     current_CMD="8~"+str(self.motor_spinBox.value())+"\n"
     send_CMD_ALT(current_CMD)
-
-#def inject_code(self):
-#   Settings.ASD.write(bytes(self.IC_0.text()+"~"+self.IC_1.text()+"~"+self.IC_2.text()+"~"+self.IC_3.text()+"~"+self.IC_4.text()+"~"+self.IC_5.text()+"~"+self.IC_6.text(), 'UTF-8'))'''
