@@ -65,9 +65,9 @@ def init(self):
     global AOI_Y
     AOI_Y = 0
     global AOI_W
-    AOI_W = 0
+    AOI_W = 1
     global AOI_H
-    AOI_H = 0
+    AOI_H = 1
 
     global livetime
     livetime = 1

@@ -50,6 +50,8 @@ def timelapse_disable(self):
     self.liveFeed_pushButton.setEnabled(False)
     self.preview_pushButton.setEnabled(False)
     self.rotate_pushButton.setEnabled(False)
+    self.xAxis_horizontalSlider.setEnabled(False)
+    self.yAxis_horizontalSlider.setEnabled(False)
 
 def timelapse_enable(self):
     if(Settings.storage_mode):
@@ -60,6 +62,8 @@ def timelapse_enable(self):
     self.liveFeed_pushButton.setEnabled(True)
     self.preview_pushButton.setEnabled(True)
     self.rotate_pushButton.setEnabled(True)
+    self.xAxis_horizontalSlider.setEnabled(True)
+    self.yAxis_horizontalSlider.setEnabled(True)
 
 def update_frame(self,file):
     self.Misc_Frame.setEnabled(True)

@@ -122,10 +122,10 @@ class MainWindow(QMainWindow, FlashLapse_UI.Ui_MainWindow):
             print(e)
             
     def Camera_update(self):
-        Settings.AOI_X = self.AOIX_doubleSpinBox.value()
-        Settings.AOI_Y = self.AOIY_doubleSpinBox.value()
-        Settings.AOI_W = self.AOIW_doubleSpinBox.value()
-        Settings.AOI_H = self.AOIH_doubleSpinBox.value()
+        Settings.AOI_X = self.xAxis_horizontalSlider.sliderPosition()/100
+        Settings.AOI_Y = self.xAxis_horizontalSlider.sliderPosition()/100
+        Settings.AOI_W = self.yAxis_horizontalSlider.sliderPosition()/100
+        Settings.AOI_H = self.yAxis_horizontalSlider.sliderPosition()/100
         
         Settings.x_resolution=self.x_resolution_spinBox.value()
         Settings.y_resolution=self.y_resolution_spinBox.value()
@@ -235,6 +235,13 @@ class MainWindow(QMainWindow, FlashLapse_UI.Ui_MainWindow):
         file = open("../_temp/save_data.txt","w") 
         file.write(Settings.email)  
         file.close()
+
+    def zoomSliderChange(self):
+        self.xAxis_label.setText("Width: "+ str(self.xAxis_horizontalSlider.sliderPosition()/100))
+        self.yAxis_label.setText("Width: "+ str(self.yAxis_horizontalSlider.sliderPosition()/100))
+
+
+        
         
  # access variables inside of the UI's file
     def __init__(self):
@@ -273,6 +280,12 @@ class MainWindow(QMainWindow, FlashLapse_UI.Ui_MainWindow):
         self.x_resolution_spinBox.valueChanged.connect(lambda: self.update_resolution())
         self.y_resolution_spinBox.valueChanged.connect(lambda: self.update_resolution())
         self.rotate_pushButton.clicked.connect(lambda: self.rotate_image())
+
+        self.xAxis_horizontalSlider.valueChanged.connect(lambda: self.zoomSliderChange())
+        self.xAxis_horizontalSlider.sliderReleased.connect(lambda: self.start_snapshot())
+
+        self.yAxis_horizontalSlider.valueChanged.connect(lambda: self.zoomSliderChange())
+        self.yAxis_horizontalSlider.sliderReleased.connect(lambda: self.start_snapshot())
 
         self.motorConfirm_pushButton.clicked.connect(lambda: Commands.motor_rotate(self))
 
