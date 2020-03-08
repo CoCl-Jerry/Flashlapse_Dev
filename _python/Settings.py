@@ -9,7 +9,7 @@ def init(self):
 
     try:
         global ASD
-        ASD = serial.Serial('/dev/ttyAMA0', 9600)
+        ASD = serial.Serial('/dev/ttyS0', 9600)
     
     except:
         UI_Update.desync(self)
