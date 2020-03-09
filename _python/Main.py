@@ -371,10 +371,10 @@ class MainWindow(QMainWindow, FlashLapse_UI.Ui_MainWindow):
         self.JPG_radioButton.toggled.connect(lambda: self.img_format())
         self.PNG_radioButton.toggled.connect(lambda: self.img_format())
 
-        self.lightingPreset_pushButton.connect(
+        self.lightingPreset_pushButton.clicked.connect(
             lambda: self.start_lighting_preset())
-        self.MotionPreset_pushButton.connect(
-            lambda: self.start_motion_preset())
+        # self.MotionPreset_pushButton.clicked.connect(
+        # lambda: self.start_motion_preset())
 
 
 # main function
