@@ -72,8 +72,6 @@ def timelapse_enable(self):
 def lightingPreset_update(self):
     self.lightingPreset_tabWidget.setEnabled(
         not Settings.lightingPreset_running)
-    self.Control_Tab.lighting_tab.setEnabled(
-        not Settings.lightingPreset_running)
     Commands.light_reset(self)
 
 
