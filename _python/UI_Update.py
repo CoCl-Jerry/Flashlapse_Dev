@@ -72,6 +72,8 @@ def timelapse_enable(self):
 def lightingPreset_update(self):
     self.lightingPreset_tabWidget.setEnabled(
         not Settings.lightingPreset_running)
+    if not Settings.lightingPreset_running:
+        Commands.light_reset(self)
 
 
 def update_frame(self, file):
