@@ -35,13 +35,10 @@ class MainWindow(QMainWindow, FlashLapse_UI.Ui_MainWindow):
         if not Settings.cycle_running:
             try:
                 Settings.cycle_time = self.powerCycle_spinBox.value()
+
                 self.Cycle_Thread = Threads.Cycle()
-
                 self.Cycle_Thread.started.connect(
-                    lambda: UI_Update.cycle_start(self))
-                self.Cycle_Thread.finished.connect(
-                    lambda: UI_Update.cycle_end(self))
-
+                    lambda: UI_Update.cycle_update(self))
                 self.Cycle_Thread.start()
 
             except Exception as e:

@@ -26,12 +26,13 @@ class Cycle(QThread):
 
         Commands.clear_lights()
         sleep(1)
-        Commands.deploy_lights(Settings.commands_list)
 
-        while True:
+        while Settings.cycle_running:
+
+            Commands.deploy_lights(Settings.commands_list)
+
             for x in range(Settings.cycle_time * 60):
                 sleep(1)
-
                 if not Settings.cycle_running:
                     break
 
@@ -39,13 +40,8 @@ class Cycle(QThread):
 
             for x in range(Settings.cycle_time * 60):
                 sleep(1)
-
                 if not Settings.cycle_running:
                     break
-            Commands.deploy_lights(Settings.commands_list)
-
-            if not Settings.cycle_running:
-                break
 
 
 class lightingPreset(QThread):
@@ -83,7 +79,7 @@ class lightingPreset(QThread):
                 Settings.send_commands_list.append(
                     "1~0~5~" + Settings.current_CMD)
                 Settings.send_commands_list.append(
-                    "1~14~18~" + Settings.current_CMD)
+                    "1~14~19~" + Settings.current_CMD)
             elif Settings.germinationDirection == 3:
                 Settings.send_commands_list.append(
                     "1~9~19~" + Settings.current_CMD)

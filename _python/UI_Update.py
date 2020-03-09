@@ -19,13 +19,12 @@ def desync(self):
     self.Misc_Frame.setEnabled(False)
 
 
-def cycle_start(self):
-    self.confirmCycle_pushButton.setText("TERMINATE CYCLE")
-
-
-def cycle_end(self):
+def cycle_update(self):
+    if not lightingPreset_running
+    self.confirmCycle_pushButton.setText("TERMINATE")
+    else
     self.confirmCycle_pushButton.setText("CONFIRM")
-    Commands.deploy_lights()
+    Commands.deploy_lights(Settings.commands_list)
 
 
 def test_start(self):
