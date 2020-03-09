@@ -54,7 +54,7 @@ def clinoStart(self):
 
     else:
         Settings.clino_running = False
-        current_CMD = "\n"
+        current_CMD = "9\n"
         send_CMD(current_CMD)
         self.clinostatSet_pushButton.setText("Set Clinostat")
 
