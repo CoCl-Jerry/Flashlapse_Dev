@@ -53,7 +53,6 @@ class lightingPreset(QThread):
     def __init__(self):
         QThread.__init__(self)
         Settings.lightingPreset_running = True
-        Commands.clear_lights()
 
     def __del__(self):
         self._running = False
