@@ -7,7 +7,7 @@ from time import sleep
 
 def light_confirm(self):
     current_CMD = "1~" + str((self.Start_spinBox.value() - 1)) + "~" + str((self.End_spinBox.value() - 1)) + "~" + str(self.R_spinBox.value()) + "~" + str(
-        self.G_spinBox.value()) + "~" + str(self.B_spinBox.value()) + "~" + str(self.W_spinBox.value()) + "~" + str(self.BRT_spinBox.value()) + "\n4"
+        self.G_spinBox.value()) + "~" + str(self.B_spinBox.value()) + "~" + str(self.W_spinBox.value()) + "~" + str(self.BRT_spinBox.value()) + "\n4\n"
     Settings.commands_list.append(current_CMD)
     send_CMD(current_CMD)
 
@@ -41,7 +41,7 @@ def deploy_lights(temp_list):
     for x in temp_list:
         send_CMD(x)
         sleep(0.1)
-    current_CMD = "\n4"
+    current_CMD = "\n4\n"
     send_CMD(current_CMD)
 
 

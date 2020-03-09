@@ -1125,22 +1125,17 @@ p, li { white-space: pre-wrap; }
           <widget class="QComboBox" name="germinationDirection_comboBox">
            <item>
             <property name="text">
-             <string>TOP HALF</string>
+             <string>TOP</string>
             </property>
            </item>
            <item>
             <property name="text">
-             <string>BOTTOM HALF</string>
+             <string>LEFT</string>
             </property>
            </item>
            <item>
             <property name="text">
-             <string>LEFT HALF</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>RIGHT HALF</string>
+             <string>RIGHT</string>
             </property>
            </item>
            <item>

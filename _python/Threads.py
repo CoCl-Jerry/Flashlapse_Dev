@@ -78,22 +78,17 @@ class lightingPreset(QThread):
                     "1~5~15~" + Settings.current_CMD)
             elif Settings.germinationDirection == 1:
                 Settings.send_commands_list.append(
-                    "1~0~5~" + Settings.current_CMD)
-                Settings.send_commands_list.append(
-                    "1~14~19~" + Settings.current_CMD)
+                    "1~9~19~" + Settings.current_CMD)
             elif Settings.germinationDirection == 2:
                 Settings.send_commands_list.append(
-                    "1~9~19~" + Settings.current_CMD)
+                    "1~0~9~" + Settings.current_CMD)
             elif Settings.germinationDirection == 3:
                 Settings.send_commands_list.append(
-                    "1~0~9~" + Settings.current_CMD)
+                    "1~6~13~" + Settings.current_CMD)
             elif Settings.germinationDirection == 4:
                 Settings.send_commands_list.append(
-                    "1~6~13~" + Settings.current_CMD)
-            elif Settings.germinationDirection == 5:
-                Settings.send_commands_list.append(
                     "1~13~19~" + Settings.current_CMD)
-            elif Settings.germinationDirection == 6:
+            elif Settings.germinationDirection == 5:
                 Settings.send_commands_list.append(
                     "1~0~6~" + Settings.current_CMD)
             Commands.deploy_lights(Settings.send_commands_list)
