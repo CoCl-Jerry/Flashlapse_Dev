@@ -1,8 +1,6 @@
 # import basic libraries
 import sys
 import time
-import os
-import re
 
 #import settings
 import Settings
@@ -201,77 +199,6 @@ class MainWindow(QMainWindow, FlashLapse_UI.Ui_MainWindow):
 
             except Exception as e:
                 print(e)
-
-    def IST_Edit(self):
-        Settings.sequence_name = self.imageTitle_lineEdit.text().replace(" ", "_")
-        self.imageTitle_lineEdit.setText(Settings.sequence_name)
-        Settings.full_dir = Settings.default_dir + "/" + Settings.sequence_name
-        self.directory_label.setText(Settings.full_dir)
-
-        if Settings.date not in Settings.sequence_name:
-            self.addDate_pushButton.setEnabled(True)
-        if(len(Settings.sequence_name) == 0):
-            self.addDate_pushButton.setEnabled(False)
-        UI_Update.validate_input(self)
-
-    def add_date(self):
-        Settings.sequence_name = Settings.sequence_name + "_" + Settings.date
-        self.imageTitle_lineEdit.setText(Settings.sequence_name)
-        Settings.full_dir = Settings.default_dir + "/" + Settings.sequence_name
-        self.directory_label.setText(Settings.full_dir)
-        self.addDate_pushButton.setEnabled(False)
-
-    def ICI_Change(self):
-        Settings.interval = self.ImageInterval_spinBox.value()
-        UI_Update.validate_input(self)
-
-    def ISD_Change(self):
-        Settings.duration = self.imageDuration_spinBox.value()
-        UI_Update.validate_input(self)
-
-    def select_directory(self):
-        m_directory = str(QFileDialog.getExistingDirectory(
-            self, "Select Directory", '/media/pi'))
-        if(len(m_directory) != 0):
-            Settings.full_dir = m_directory + "/" + Settings.sequence_name
-            self.directory_label.setText(Settings.full_dir)
-        UI_Update.validate_input(self)
-
-    def Email_Change(self):
-        valid = None
-        if (len(self.Email_lineEdit.text())) > 7:
-            valid = re.match(
-                '^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$', self.Email_lineEdit.text())
-        if (valid != None):
-            self.emailConfirm_pushButton.setEnabled(True)
-        else:
-            self.emailConfirm_pushButton.setEnabled(False)
-            self.emailDefault_pushButton.setEnabled(False)
-
-    def Email_Entered(self):
-        Settings.email = self.Email_lineEdit.text()
-        self.emailDefault_pushButton.setEnabled(True)
-        UI_Update.validate_input(self)
-
-    def Save_Email(self):
-        open("../_temp/save_data.txt", "w").close()
-
-        file = open("../_temp/save_data.txt", "w")
-        file.write(Settings.email)
-        file.close()
-
-    def zoomSliderChange(self):
-        self.xAxis_label.setText(
-            "AXIS A: " + str(self.xAxis_horizontalSlider.sliderPosition() / 100))
-        self.yAxis_label.setText(
-            "AXIS B: " + str(self.yAxis_horizontalSlider.sliderPosition() / 100))
-
-    def img_format(self):
-        if(self.JPG_radioButton.isChecked()):
-            Settings.image_format = 1
-        else:
-            Settings.image_format = 0
-
  # access variables inside of the UI's file
 
     def __init__(self):
@@ -326,39 +253,45 @@ class MainWindow(QMainWindow, FlashLapse_UI.Ui_MainWindow):
         self.rotate_pushButton.clicked.connect(lambda: self.rotate_image())
 
         self.xAxis_horizontalSlider.valueChanged.connect(
-            lambda: self.zoomSliderChange())
+            lambda: Functions.zoomSliderChange(self))
         self.xAxis_horizontalSlider.sliderReleased.connect(
             lambda: self.start_snapshot())
 
         self.yAxis_horizontalSlider.valueChanged.connect(
-            lambda: self.zoomSliderChange())
+            lambda: Functions.zoomSliderChange(self))
         self.yAxis_horizontalSlider.sliderReleased.connect(
             lambda: self.start_snapshot())
 
         self.motorConfirm_pushButton.clicked.connect(
             lambda: Commands.motor_rotate(self.motor_spinBox.value()))
 
-        self.imageTitle_lineEdit.textChanged.connect(lambda: self.IST_Edit())
-        self.addDate_pushButton.clicked.connect(lambda: self.add_date())
+        self.imageTitle_lineEdit.textChanged.connect(
+            lambda: Functions.IST_Edit(self))
+        self.addDate_pushButton.clicked.connect(
+            lambda: Functions.add_date(self))
         self.ImageInterval_spinBox.valueChanged.connect(
-            lambda: self.ICI_Change())
+            lambda: Functions.ICI_Change(self))
         self.imageDuration_spinBox.valueChanged.connect(
-            lambda: self.ISD_Change())
+            lambda: Functions.ISD_Change(self))
         self.directory_pushButton.clicked.connect(
-            lambda: self.select_directory())
+            lambda: Functions.select_directory(self))
 
-        self.Email_lineEdit.textChanged.connect(lambda: self.Email_Change())
+        self.Email_lineEdit.textChanged.connect(
+            lambda: Functions.Email_Change(self))
         self.emailConfirm_pushButton.clicked.connect(
-            lambda: self.Email_Entered())
-        self.emailDefault_pushButton.clicked.connect(lambda: self.Save_Email())
+            lambda: Functions.Email_Entered(self))
+        self.emailDefault_pushButton.clicked.connect(
+            lambda: Functions.Save_Email(self))
 
         self.storage_tabWidget.currentChanged.connect(
             lambda: UI_Update.validate_input(self))
         self.startRoutines_pushButton.clicked.connect(
             lambda: self.start_sequence())
 
-        self.JPG_radioButton.toggled.connect(lambda: self.img_format())
-        self.PNG_radioButton.toggled.connect(lambda: self.img_format())
+        self.JPG_radioButton.toggled.connect(
+            lambda: Functions.img_format(self))
+        self.PNG_radioButton.toggled.connect(
+            lambda: Functions.img_format(self))
 
         self.lightingPreset_pushButton.clicked.connect(
             lambda: self.start_lighting_preset())
