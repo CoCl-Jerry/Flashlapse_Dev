@@ -1568,7 +1568,7 @@
       <item>
        <widget class="QLabel" name="xAxis_label">
         <property name="text">
-         <string>AXIS A: 0.00</string>
+         <string>AXIS A: 0.0</string>
         </property>
        </widget>
       </item>
@@ -1588,7 +1588,7 @@
       <item>
        <widget class="QLabel" name="yAxis_label">
         <property name="text">
-         <string>AXIS B: 1.00</string>
+         <string>AXIS B: 1.0</string>
         </property>
        </widget>
       </item>

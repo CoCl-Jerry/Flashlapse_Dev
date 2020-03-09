@@ -86,6 +86,6 @@ def motorSliderRelease(self):
     current_CMD ="6~"+str(int(60/(2.038*Settings.RPM)))+"\n"
     send_CMD_ALT(current_CMD)
 
-def motor_rotate(self):
-    current_CMD="8~"+str(self.motor_spinBox.value())+"\n"
+def motor_rotate(deg):
+    current_CMD="8~"+deg+"\n"
     send_CMD_ALT(current_CMD)

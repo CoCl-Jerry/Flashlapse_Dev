@@ -290,7 +290,7 @@ class MainWindow(QMainWindow, FlashLapse_UI.Ui_MainWindow):
         self.yAxis_horizontalSlider.valueChanged.connect(lambda: self.zoomSliderChange())
         self.yAxis_horizontalSlider.sliderReleased.connect(lambda: self.start_snapshot())
 
-        self.motorConfirm_pushButton.clicked.connect(lambda: Commands.motor_rotate(self))
+        self.motorConfirm_pushButton.clicked.connect(lambda: Commands.motor_rotate(self.motor_spinBox.value()))
 
         self.imageTitle_lineEdit.textChanged.connect(lambda: self.IST_Edit())
         self.addDate_pushButton.clicked.connect(lambda: self.add_date())
