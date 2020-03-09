@@ -56,44 +56,51 @@ class lightingPreset(QThread):
         Commands.clear_lights()
 
     def __del__(self):
-        Commands.clear_lights()
         self._running = False
 
     def run(self):
         if not Settings.lightingPreset_mode:
             if Settings.germinationColor == 0:
-                Settings.current_CMD = "255~0~0~0~50"
+                Settings.current_CMD = "255~0~0~0~80\n"
             elif Settings.germinationColor == 1:
-                Settings.current_CMD = "0~255~0~0~50"
+                Settings.current_CMD = "0~255~0~0~80\n"
             elif Settings.germinationColor == 2:
-                Settings.current_CMD = "0~0~255~0~50"
+                Settings.current_CMD = "0~0~255~0~80\n"
             elif Settings.germinationColor == 3:
-                Settings.current_CMD = "255~0~255~0~50"
+                Settings.current_CMD = "255~0~255~0~80\n"
             elif Settings.germinationColor == 4:
-                Settings.current_CMD = "255~255~255~0~50"
+                Settings.current_CMD = "255~255~255~0~80\n"
             elif Settings.germinationColor == 5:
-                Settings.current_CMD = "0~0~0~255~50"
+                Settings.current_CMD = "0~0~0~255~50\n"
 
             if Settings.germinationDirection == 0:
                 Settings.send_commands_list.append(
-                    "1~5~15~" + Settings.current_CMD)
+                    "1~0~19~" + Settings.current_CMD)
             elif Settings.germinationDirection == 1:
                 Settings.send_commands_list.append(
-                    "1~9~19~" + Settings.current_CMD)
+                    "1~5~15~" + Settings.current_CMD)
             elif Settings.germinationDirection == 2:
                 Settings.send_commands_list.append(
-                    "1~0~9~" + Settings.current_CMD)
+                    "1~0~5~" + Settings.current_CMD)
+                Settings.send_commands_list.append(
+                    "1~14~18~" + Settings.current_CMD)
             elif Settings.germinationDirection == 3:
                 Settings.send_commands_list.append(
-                    "1~6~13~" + Settings.current_CMD)
+                    "1~9~19~" + Settings.current_CMD)
             elif Settings.germinationDirection == 4:
                 Settings.send_commands_list.append(
-                    "1~13~19~" + Settings.current_CMD)
+                    "1~0~10~" + Settings.current_CMD)
             elif Settings.germinationDirection == 5:
                 Settings.send_commands_list.append(
+                    "1~6~13~" + Settings.current_CMD)
+            elif Settings.germinationDirection == 6:
+                Settings.send_commands_list.append(
+                    "1~13~19~" + Settings.current_CMD)
+            elif Settings.germinationDirection == 7:
+                Settings.send_commands_list.append(
                     "1~0~6~" + Settings.current_CMD)
-            Commands.deploy_lights(Settings.send_commands_list)
-            Settings.send_commands_list.clear()
+        Commands.deploy_lights(Settings.send_commands_list)
+        Settings.send_commands_list.clear()
 
 
 class Schedule(QThread):

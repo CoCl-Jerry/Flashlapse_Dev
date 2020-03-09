@@ -41,7 +41,7 @@ def deploy_lights(temp_list):
     for x in temp_list:
         send_CMD(x)
         sleep(0.1)
-    current_CMD = "\n4\n"
+    current_CMD = "4\n"
     send_CMD(current_CMD)
 
 
