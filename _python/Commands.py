@@ -87,5 +87,5 @@ def motorSliderRelease(self):
     send_CMD_ALT(current_CMD)
 
 def motor_rotate(deg):
-    current_CMD="8~"+deg+"\n"
+    current_CMD="8~"+str(deg)+"\n"
     send_CMD_ALT(current_CMD)
