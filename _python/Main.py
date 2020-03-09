@@ -44,7 +44,7 @@ class MainWindow(QMainWindow, FlashLapse_UI.Ui_MainWindow):
             except Exception as e:
                 print(e)
         else:
-            UI_Update.cycle_end(self)
+            UI_Update.cycle_update(self)
             Settings.cycle_running = False
 
     def schedule_test(self):

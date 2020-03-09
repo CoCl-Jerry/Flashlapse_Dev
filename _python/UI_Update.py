@@ -20,7 +20,7 @@ def desync(self):
 
 
 def cycle_update(self):
-    if not Settings.cycle_running:
+    if Settings.cycle_running:
         self.confirmCycle_pushButton.setText("TERMINATE")
     else:
         self.confirmCycle_pushButton.setText("CONFIRM")
