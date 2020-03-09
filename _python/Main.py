@@ -10,6 +10,7 @@ import Settings
 # import custom functions
 import Commands
 import Threads
+import functions
 
 # import UI functions
 import UI_Update
@@ -84,7 +85,7 @@ class MainWindow(QMainWindow, FlashLapse_UI.Ui_MainWindow):
 
     def start_snapshot(self):
         try:
-            self.Camera_update()
+            Functions.Camera_update(self)
             self.Snap_Thread = Threads.Snap()
             self.Snap_Thread.started.connect(
                 lambda: UI_Update.imaging_disable(self))
@@ -110,7 +111,7 @@ class MainWindow(QMainWindow, FlashLapse_UI.Ui_MainWindow):
 
     def start_preview(self):
         try:
-            self.Camera_update()
+            Functions.Camera_update(self)
             self.Preview_Thread = Threads.Preview()
             self.Preview_Thread.started.connect(
                 lambda: UI_Update.imaging_disable(self))
@@ -147,18 +148,9 @@ class MainWindow(QMainWindow, FlashLapse_UI.Ui_MainWindow):
             Settings.lightingPreset_running = False
             UI_Update.lightingPreset_update(self)
 
-    def Camera_update(self):
-        Settings.AOI_X = self.xAxis_horizontalSlider.sliderPosition() / 100
-        Settings.AOI_Y = self.xAxis_horizontalSlider.sliderPosition() / 100
-        Settings.AOI_W = self.yAxis_horizontalSlider.sliderPosition() / 100
-        Settings.AOI_H = self.yAxis_horizontalSlider.sliderPosition() / 100
-
-        Settings.x_resolution = self.x_resolution_spinBox.value()
-        Settings.y_resolution = self.y_resolution_spinBox.value()
-
     def rotate_image(self):
         try:
-            self.Camera_update()
+            Functions.Camera_update(self)
             Settings.rotation += 1
             self.Snap_Thread = Threads.Snap()
             self.Snap_Thread.started.connect(
@@ -180,7 +172,7 @@ class MainWindow(QMainWindow, FlashLapse_UI.Ui_MainWindow):
 
         try:
             if not Settings.timelapse_running:
-                self.Camera_update()
+                Functions.Camera_update(self)
 
                 self.Imaging_Thread = Threads.Image()
                 self.Imaging_Thread.started.connect(
