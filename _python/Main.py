@@ -10,7 +10,7 @@ import Settings
 # import custom functions
 import Commands
 import Threads
-import functions
+import Functions
 
 # import UI functions
 import UI_Update
