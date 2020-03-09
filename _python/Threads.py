@@ -59,7 +59,7 @@ class lightingPreset(QThread):
         self._running = False
 
     def run(self):
-        if Settings.lightingPreset_mode:
+        if not Settings.lightingPreset_mode:
             if Settings.germinationColor == 0:
                 Settings.current_CMD = "255~0~0~0~50"
             elif Settings.germinationColor == 1:
@@ -96,7 +96,6 @@ class lightingPreset(QThread):
             elif Settings.germinationDirection == 6:
                 Settings.send_commands_list.append(
                     "3~0~6~" + Settings.current_CMD)
-
             Commands.deploy_lights(Settings.send_commands_list)
 
 
