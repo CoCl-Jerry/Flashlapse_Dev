@@ -53,8 +53,10 @@ class lightingPreset(QThread):
     def __init__(self):
         QThread.__init__(self)
         Settings.lightingPreset_running = True
+        Commands.light_reset(self)
 
     def __del__(self):
+        Commands.light_reset(self)
         self._running = False
 
     def run(self):
