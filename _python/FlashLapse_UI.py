@@ -643,7 +643,7 @@ class Ui_MainWindow(object):
         self.actionCreate_Timelapse.setObjectName("actionCreate_Timelapse")
 
         self.retranslateUi(MainWindow)
-        self.Control_Tab.setCurrentIndex(0)
+        self.Control_Tab.setCurrentIndex(1)
         self.storage_tabWidget.setCurrentIndex(1)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
@@ -730,8 +730,8 @@ class Ui_MainWindow(object):
         self.preview_pushButton.setText(_translate("MainWindow", "Full Preview"))
         self.rotate_pushButton.setText(_translate("MainWindow", "Rotate Image"))
         self.AOI_label_3.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-weight:600;\">Zoom Control</span></p></body></html>"))
-        self.xAxis_label.setText(_translate("MainWindow", "AXIS A: 0.0"))
-        self.yAxis_label.setText(_translate("MainWindow", "AXIS B: 1.0"))
+        self.xAxis_label.setText(_translate("MainWindow", "AXIS A: 0.00"))
+        self.yAxis_label.setText(_translate("MainWindow", "AXIS B: 1.00"))
         self.startRoutines_pushButton.setText(_translate("MainWindow", "Start LOCAL Image Sequence"))
         self.actionOpen_Directory.setText(_translate("MainWindow", "Open Directory"))
         self.actionExit.setText(_translate("MainWindow", "Exit"))
