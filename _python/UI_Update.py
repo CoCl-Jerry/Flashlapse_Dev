@@ -27,21 +27,18 @@ def cycle_update(self):
         Commands.deploy_lights(Settings.commands_list)
 
 
-def test_start(self):
-    self.schedulerTest_pushButton.setText("TERMINATE TEST")
+def test_update(self):
+    if Settings.test_running:
+        self.schedulerTest_pushButton.setText("TERMINATE")
+    else:
+        self.schedulerTest_pushButton.setText("Test Cycle")
 
 
-def test_end(self):
-    self.schedulerTest_pushButton.setText("Test Run")
-    Settings.test_running = False
-
-
-def schedule_start(self):
-    self.schedulerSet_pushButton.setText("TERMINATE")
-
-
-def schedule_end(self):
-    self.schedulerSet_pushButton.setText("Set Schedule")
+def schedule_update(self):
+    if Settings.sch_running:
+        self.schedulerTest_pushButton.setText("TERMINATE")
+    else:
+        self.schedulerTest_pushButton.setText("Set Cycle")
 
 
 def imaging_disable(self):

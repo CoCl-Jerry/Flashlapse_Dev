@@ -111,13 +111,14 @@ class Schedule(QThread):
 
     def run(self):
         while Settings.sch_running:
-            Commands.motor_rotate(Settings.angle_1)
+            if sch_running:
+                Commands.motor_rotate(Settings.angle_1)
             for x in range(Settings.delay_1 * 60):
                 sleep(1)
                 if not Settings.sch_running:
                     break
-
-            Commands.motor_rotate(Settings.angle_2)
+            if sch_running:
+                Commands.motor_rotate(Settings.angle_2)
             for x in range(Settings.delay_2 * 60):
                 sleep(1)
                 if not Settings.sch_running:
@@ -135,13 +136,15 @@ class Test(QThread):
 
     def run(self):
         for x in range(5):
-            Commands.motor_rotate(Settings.angle_1)
+            if test_running:
+                Commands.motor_rotate(Settings.angle_1)
             for x in range(5):
                 sleep(1)
                 if not Settings.test_running:
                     break
 
-            Commands.motor_rotate(Settings.angle_2)
+            if test_running:
+                Commands.motor_rotate(Settings.angle_2)
             for x in range(5):
                 sleep(1)
                 if not Settings.test_running:

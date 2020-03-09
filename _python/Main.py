@@ -52,18 +52,17 @@ class MainWindow(QMainWindow, FlashLapse_UI.Ui_MainWindow):
             try:
                 Settings.angle_1 = self.rotate1_spinbox.value()
                 Settings.angle_2 = self.rotate2_spinbox.value()
-
                 self.Test_Thread = Threads.Test()
                 self.Test_Thread.started.connect(
-                    lambda: UI_Update.test_start(self))
+                    lambda: UI_Update.test_update(self))
                 self.Test_Thread.finished.connect(
-                    lambda: UI_Update.test_end(self))
+                    lambda: UI_Update.test_update(self))
                 self.Test_Thread.start()
             except Exception as e:
                 print(e)
         else:
-            UI_Update.test_end(self)
             Settings.test_running = False
+            UI_Update.test_end(self)
 
     def schedule_run(self):
         if not Settings.sch_running:
@@ -75,13 +74,13 @@ class MainWindow(QMainWindow, FlashLapse_UI.Ui_MainWindow):
 
                 self.Schedule_Thread = Threads.Schedule()
                 self.Schedule_Thread.started.connect(
-                    lambda: UI_Update.schedule_start(self))
+                    lambda: UI_Update.schedule_update(self))
                 self.Schedule_Thread.start()
             except Exception as e:
                 print(e)
         else:
-            UI_Update.schedule_end(self)
             Settings.sch_running = False
+            UI_Update.schedule_update(self)
 
     def start_snapshot(self):
         try:
