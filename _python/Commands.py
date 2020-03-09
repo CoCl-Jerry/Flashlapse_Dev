@@ -54,6 +54,7 @@ def clinoStart(self):
 
 
 def send_CMD(CMD):
+    print(CMD)
     Settings.ASD.write(bytes(CMD, 'UTF-8'))
 
 
