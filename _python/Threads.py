@@ -36,7 +36,8 @@ class Cycle(QThread):
                 if not Settings.cycle_running:
                     break
 
-            Commands.clear_lights()
+            if Settings.cycle_running:
+                Commands.clear_lights()
 
             for x in range(Settings.cycle_time * 60):
                 sleep(1)
