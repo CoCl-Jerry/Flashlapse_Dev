@@ -97,7 +97,7 @@ class lightingPreset(QThread):
                 Settings.send_commands_list.append(
                     "3~0~6~" + Settings.current_CMD)
 
-            Commands.deploy_lights(Settings.sned_commands_list)
+            Commands.deploy_lights(Settings.send_commands_list)
 
 
 class Schedule(QThread):
