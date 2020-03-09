@@ -62,7 +62,7 @@ class MainWindow(QMainWindow, FlashLapse_UI.Ui_MainWindow):
                 print(e)
         else:
             Settings.test_running = False
-            UI_Update.test_end(self)
+            UI_Update.test_update(self)
 
     def schedule_run(self):
         if not Settings.sch_running:
