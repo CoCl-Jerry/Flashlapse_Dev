@@ -7,7 +7,7 @@ from time import sleep
 
 def light_confirm(self):
     current_CMD = "1~" + str((self.Start_spinBox.value() - 1)) + "~" + str((self.End_spinBox.value() - 1)) + "~" + str(self.R_spinBox.value()) + "~" + str(
-        self.G_spinBox.value()) + "~" + str(self.B_spinBox.value()) + "~" + str(self.W_spinBox.value()) + "~" + str(self.BRT_spinBox.value()) + "\n4\n"
+        self.G_spinBox.value()) + "~" + str(self.B_spinBox.value()) + "~" + str(self.W_spinBox.value()) + "~" + str(self.BRT_spinBox.value())
     Settings.commands_list.append("3~" + current_CMD)
     send_CMD(current_CMD)
 
