@@ -30,15 +30,19 @@ def cycle_update(self):
 def test_update(self):
     if Settings.test_running:
         self.schedulerTest_pushButton.setText("TERMINATE")
+        self.clinostatSet_pushButton.setEnabled(False)
     else:
         self.schedulerTest_pushButton.setText("Test Cycle")
+        self.clinostatSet_pushButton.setEnabled(True)
 
 
 def schedule_update(self):
     if Settings.sch_running:
-        self.schedulerTest_pushButton.setText("TERMINATE")
+        self.schedulerSet_pushButton.setText("TERMINATE")
+        self.clinostatSet_pushButton.setEnabled(False)
     else:
-        self.schedulerTest_pushButton.setText("Set Cycle")
+        self.schedulerSet_pushButton.setText("Set Cycle")
+        self.clinostatSet_pushButton.setEnabled(True)
 
 
 def imaging_disable(self):
