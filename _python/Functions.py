@@ -155,8 +155,8 @@ def start_lighting_preset(self):
             Settings.send_commands_list.clear()
 
         else:
-            current_CMD = "2~2~" + str(self.cycleTime_spinBox.value * 189473) + \
-                "~" + str(self.stripLength_spinBox.value) + "\n"
+            current_CMD = "2~2~" + str(self.cycleTime_spinBox.value() * 189473) + \
+                "~" + str(self.stripLength_spinBox.value()) + "\n"
             send_CMD(current_CMD)
 
     else:
