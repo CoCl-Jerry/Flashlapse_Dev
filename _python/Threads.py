@@ -249,11 +249,13 @@ class Dropbox(QThread):
 
     def run(self):
         os.system(
-            "/home/pi/Dropbox-Uploader/dropbox_uploader.sh mkdir /" + Settings.cpuserial)
+            "/home/pi/Dropbox-Uploader/dropbox_uploader.sh mkdir /" + Settings.date)
+        os.system(
+            "/home/pi/Dropbox-Uploader/dropbox_uploader.sh mkdir /" + Settings.date + "/" + Settings.cpuserial)
         os.system("/home/pi/Dropbox-Uploader/dropbox_uploader.sh mkdir /" +
                   Settings.cpuserial + "/" + Settings.sequence_name)
         Settings.link = str(subprocess.check_output(
-            "/home/pi/Dropbox-Uploader/dropbox_uploader.sh share /" + Settings.cpuserial, shell=True))
+            "/home/pi/Dropbox-Uploader/dropbox_uploader.sh share /" + Settings.date + "/" + Settings.cpuserial, shell=True))
         Settings.link = Settings.link.replace("b' > ", "")
         Settings.link = Settings.link.split("\\")[0]
         count = 0
