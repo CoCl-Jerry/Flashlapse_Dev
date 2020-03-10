@@ -70,6 +70,7 @@ class MPreset(QThread):
                         break
                 if Settings.motionPreset_running:
                     Commands.motor_rotate(90)
+                    Commands.clear_lights()
                     Settings.current_CMD = "1~0~10~0~0~0~255~100\n4\n"
                     Commands.send_CMD(Settings.current_CMD)
                     Settings.motionPreset_running = False
