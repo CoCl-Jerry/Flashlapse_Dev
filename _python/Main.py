@@ -272,7 +272,7 @@ class MainWindow(QMainWindow, FlashLapse_UI.Ui_MainWindow):
             lambda: Functions.img_format(self))
 
         self.lightingPreset_pushButton.clicked.connect(
-            lambda: Functions.start_lighting_preset())
+            lambda: Functions.start_lighting_preset(self))
         # self.MotionPreset_pushButton.clicked.connect(
         # lambda: self.start_motion_preset())
 
