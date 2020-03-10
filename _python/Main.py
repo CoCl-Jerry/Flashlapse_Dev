@@ -41,6 +41,8 @@ class MainWindow(QMainWindow, FlashLapse_UI.Ui_MainWindow):
                 self.MPreset_Thread = Threads.MPreset()
                 self.MPreset_Thread.started.connect(
                     lambda: UI_Update.motionPreset_update(self))
+                self.MPreset_Thread.finished.connect(
+                    lambda: UI_Update.motionPreset_update(self))
                 self.MPreset_Thread.start()
 
             except Exception as e:
