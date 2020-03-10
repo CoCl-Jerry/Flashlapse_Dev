@@ -54,11 +54,13 @@ def imaging_enable(self):
 
 
 def timelapse_update(self):
-    if(Settings.storage_mode):
-        self.startRoutines_pushButton.setText("End CLOUD Image Sequence")
-    else:
-        self.startRoutines_pushButton.setText("End LOCAL Image Sequence")
     if Settings.timelapse_running:
+        if(Settings.storage_mode):
+            self.startRoutines_pushButton.setText(
+                "End CLOUD Image Sequence")
+        else:
+            self.startRoutines_pushButton.setText(
+                "End LOCAL Image Sequence")
         self.Misc_Frame.setEnabled(False)
     else:
         if(Settings.storage_mode):
