@@ -77,7 +77,7 @@ def lightingPreset_update(self):
 
 
 def motionPreset_update(self):
-    self.MotionPreset_tabWidget.setEnabled(
+    self.motionPreset_tabWidget.setEnabled(
         not Settings.motionPreset_running)
     if not Settings.motionPreset_running:
         Commands.light_reset(self)
