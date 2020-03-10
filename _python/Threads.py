@@ -59,7 +59,7 @@ class MPreset(QThread):
         while Settings.motionPreset_running:
             if not Settings.motionPreset_mode:
                 Settings.current_CMD = "1~5~15~0~0~0~255~100\n4\n"
-                Commands.send_CMD(current_CMD)
+                Commands.send_CMD(Settings.current_CMD)
 
                 for x in range(Settings.gravitropism_wait * 1):
                     for x in range(60):
