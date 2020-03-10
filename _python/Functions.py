@@ -104,24 +104,25 @@ def start_lighting_preset(self):
         Settings.germinationDirection = self.germinationDirection_comboBox.currentIndex()
         Settings.cycleTime = self.cycleTime_spinBox.value()
         Settings.stripLength = self.stripLength_spinBox.value()
-        UI_Update.lightingPreset_update(self))
 
-        Settings.lightingPreset_running=True
+        Settings.lightingPreset_running = True
+        UI_Update.lightingPreset_update(self)
+
         Commands.clear_lights()
 
         if not Settings.lightingPreset_mode:
             if Settings.germinationColor == 0:
-                Settings.current_CMD="255~0~0~0~80\n"
+                Settings.current_CMD = "255~0~0~0~80\n"
             elif Settings.germinationColor == 1:
-                Settings.current_CMD="0~255~0~0~80\n"
+                Settings.current_CMD = "0~255~0~0~80\n"
             elif Settings.germinationColor == 2:
-                Settings.current_CMD="0~0~255~0~80\n"
+                Settings.current_CMD = "0~0~255~0~80\n"
             elif Settings.germinationColor == 3:
-                Settings.current_CMD="255~0~255~0~80\n"
+                Settings.current_CMD = "255~0~255~0~80\n"
             elif Settings.germinationColor == 4:
-                Settings.current_CMD="255~255~255~0~80\n"
+                Settings.current_CMD = "255~255~255~0~80\n"
             elif Settings.germinationColor == 5:
-                Settings.current_CMD="0~0~0~255~50\n"
+                Settings.current_CMD = "0~0~0~255~50\n"
 
             if Settings.germinationDirection == 0:
                 Settings.send_commands_list.append(
@@ -153,5 +154,5 @@ def start_lighting_preset(self):
         Settings.send_commands_list.clear()
 
     else:
-        Settings.lightingPreset_running=False
+        Settings.lightingPreset_running = False
         UI_Update.lightingPreset_update(self)
