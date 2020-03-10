@@ -253,7 +253,7 @@ class Dropbox(QThread):
             "/home/pi/Dropbox-Uploader/dropbox_uploader.sh mkdir /" + Settings.date)
         os.system(
             "/home/pi/Dropbox-Uploader/dropbox_uploader.sh mkdir /" + Settings.date + "/" + Settings.cpuserial)
-        os.system("/home/pi/Dropbox-Uploader/dropbox_uploader.sh mkdir /" + Settings.date + "/"
+        os.system("/home/pi/Dropbox-Uploader/dropbox_uploader.sh mkdir /" + Settings.date + "/" +
                   Settings.cpuserial + "/" + Settings.sequence_name)
         Settings.link = str(subprocess.check_output(
             "/home/pi/Dropbox-Uploader/dropbox_uploader.sh share /" + Settings.date + "/" + Settings.cpuserial, shell=True))
@@ -263,7 +263,7 @@ class Dropbox(QThread):
         while (count < Settings.total):
             if (len(Settings.file_list) > 0):
                 os.system("/home/pi/Dropbox-Uploader/dropbox_uploader.sh upload " +
-                          Settings.file_list[0] + " /" + Settings.cpuserial + "/" + Settings.sequence_name)
+                          Settings.file_list[0] + " /" + Settings.date + "/" + Settings.cpuserial + "/" + Settings.sequence_name)
                 os.system("rm " + Settings.file_list[0])
                 del Settings.file_list[0]
                 count += 1
