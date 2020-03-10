@@ -124,28 +124,6 @@ class MainWindow(QMainWindow, FlashLapse_UI.Ui_MainWindow):
         except Exception as e:
             print(e)
 
-    def start_lighting_preset(self):
-        if not Settings.lightingPreset_running:
-            try:
-                Settings.lightingPreset_mode = self.lightingPreset_tabWidget.currentIndex()
-                Settings.germinationColor = self.germinationColor_comboBox.currentIndex()
-                Settings.germinationDirection = self.germinationDirection_comboBox.currentIndex()
-                Settings.cycleTime = self.cycleTime_spinBox.value()
-                Settings.stripLength = self.stripLength_spinBox.value()
-
-                self.lightingPreset_Thread = Threads.lightingPreset()
-                self.lightingPreset_Thread.started.connect(
-                    lambda: UI_Update.lightingPreset_update(self))
-                self.lightingPreset_Thread.finished.connect(
-                    lambda: UI_Update.lightingPreset_update(self))
-                self.lightingPreset_Thread.start()
-
-            except Exception as e:
-                print(e)
-        else:
-            Settings.lightingPreset_running = False
-            UI_Update.lightingPreset_update(self)
-
     def rotate_image(self):
         try:
             Functions.Camera_update(self)
@@ -294,7 +272,7 @@ class MainWindow(QMainWindow, FlashLapse_UI.Ui_MainWindow):
             lambda: Functions.img_format(self))
 
         self.lightingPreset_pushButton.clicked.connect(
-            lambda: self.start_lighting_preset())
+            lambda: Functions.start_lighting_preset())
         # self.MotionPreset_pushButton.clicked.connect(
         # lambda: self.start_motion_preset())
 
