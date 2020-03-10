@@ -71,6 +71,8 @@ class MPreset(QThread):
                 if Settings.motionPreset_running:
                     Commands.motor_rotate(90)
                     Settings.current_CMD = "1~0~10~0~0~0~255~100\n4\n"
+                    Commands.send_CMD(Settings.current_CMD)
+                    Settings.motionPreset_running = False
             else:
                 for x in range(Settings.rotateDelay * 1):
                     for x in range(60):
@@ -81,6 +83,7 @@ class MPreset(QThread):
                         break
                 if Settings.motionPreset_running:
                     Commands.motor_rotate(rotateAmount)
+                    Settings.motionPreset_running = False
 
 
 class Schedule(QThread):
