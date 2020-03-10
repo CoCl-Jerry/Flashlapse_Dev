@@ -1,5 +1,6 @@
 import Settings
 import UI_Update
+import Commands
 import PyQt5
 from PyQt5 import QtCore, QtGui, QtWidgets
 
