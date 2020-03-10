@@ -145,12 +145,6 @@ def init(self):
     global motionPreset_running
     motionPreset_running = False
 
-    global cycleTime
-    cycleTime = 24
-
-    global stripLength
-    stripLength = 5
-
     global cpuserial
     f = open('/proc/cpuinfo', 'r')
     for line in f:
