@@ -30,6 +30,25 @@ date = time.strftime('%m_%d_%Y')
 
 class MainWindow(QMainWindow, FlashLapse_UI.Ui_MainWindow):
 
+    def start_motion_preset(self):
+        if not Settings.motionPreset_running:
+            try:
+                Settings.gravitropism_wait = self.gravitropism_spinBox.value()
+                Settings.rotateAmount = self.rotateAmount_spinBox.value()
+                Settings.rotateDelay = self.rotateDelay_spinBox.value()
+                Settings.motionPreset_mode = self.motionPreset_tabWidget.currentIndex()
+
+                self.MPreset_Thread = Threads.MPreset()
+                self.MPreset_Thread.started.connect(
+                    lambda: UI_Update.motionPreset_update(self))
+                self.MPreset_Thread.start()
+
+            except Exception as e:
+                print(e)
+        else:
+            Settings.motionPreset_running = False
+            UI_Update.motionPreset_update(self)
+
     def start_cycle(self):
         if not Settings.cycle_running:
             try:
@@ -273,8 +292,8 @@ class MainWindow(QMainWindow, FlashLapse_UI.Ui_MainWindow):
 
         self.lightingPreset_pushButton.clicked.connect(
             lambda: Functions.start_lighting_preset(self))
-        # self.MotionPreset_pushButton.clicked.connect(
-        # lambda: self.start_motion_preset())
+        self.MotionPreset_pushButton.clicked.connect(
+            lambda: Functions.start_motion_preset(self))
 
 
 # main function

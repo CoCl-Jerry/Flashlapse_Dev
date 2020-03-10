@@ -76,6 +76,13 @@ def lightingPreset_update(self):
         Commands.light_reset(self)
 
 
+def motionPreset_update(self):
+    self.MotionPreset_tabWidget.setEnabled(
+        not Settings.motionPreset_running)
+    if not Settings.motionPreset_running:
+        Commands.light_reset(self)
+
+
 def update_frame(self, file):
     self.Misc_Frame.setEnabled(True)
     temp_img = PyQt5.QtGui.QImage(file)

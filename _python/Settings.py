@@ -133,8 +133,14 @@ def init(self):
     global stripLength
     stripLength = 5
 
-    global lightingPreset_mode
-    lightingPreset_mode = 0
+    global gravitropism_wait
+    gravitropism_wait = 120
+
+    global rotateAmount
+    rotateAmount = 90
+
+    global rotateDelay
+    rotateDelay = 120
 
     global motionPreset_mode
     lightingPreset_mode = 0

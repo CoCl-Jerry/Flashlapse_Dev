@@ -100,7 +100,6 @@ def img_format(self):
 
 def start_lighting_preset(self):
     if not Settings.lightingPreset_running:
-        Settings.lightingPreset_mode = self.lightingPreset_tabWidget.currentIndex()
         Settings.germinationColor = self.germinationColor_comboBox.currentIndex()
         Settings.germinationDirection = self.germinationDirection_comboBox.currentIndex()
         Settings.cycleTime = self.cycleTime_spinBox.value()
@@ -111,7 +110,7 @@ def start_lighting_preset(self):
 
         Commands.clear_lights()
 
-        if not Settings.lightingPreset_mode:
+        if not self.lightingPreset_tabWidget.currentIndex():
             if Settings.germinationColor == 0:
                 Settings.current_CMD = "255~0~0~0~80\n"
             elif Settings.germinationColor == 1:

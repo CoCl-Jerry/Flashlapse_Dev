@@ -45,6 +45,44 @@ class Cycle(QThread):
                     break
 
 
+class MPreset(QThread):
+
+    def __init__(self):
+        QThread.__init__(self)
+        Settings.motionPreset_running = True
+
+    def __del__(self):
+        self._running = False
+
+    def run(self):
+        Commands.clear_lights()
+        while Settings.motionPreset_running:
+            if not motionPreset_mode:
+                Settings.current_CMD = "1~5~15~0~0~0~255~100\n4\n"
+                Commands.send_CMD(current_CMD)
+
+                for x in range(Settings.gravitropism_wait * 1):
+                    for x in range(60):
+                        sleep(1)
+                        if not Settings.motionPreset_running:
+                            break
+                    if not Settings.motionPreset_running:
+                        break
+                if Settings.motionPreset_running:
+                    Commands.motor_rotate(90)
+                    Settings.current_CMD = "1~0~10~0~0~0~255~100\n4\n"
+            else:
+                for x in range(Settings.rotateDelay * 1):
+                    for x in range(60):
+                        sleep(1)
+                        if not Settings.motionPreset_running:
+                            break
+                    if not Settings.motionPreset_running:
+                        break
+                if Settings.motionPreset_running:
+                    Commands.motor_rotate(rotateAmount)
+
+
 class Schedule(QThread):
 
     def __init__(self):
