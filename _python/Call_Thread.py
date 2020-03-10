@@ -165,7 +165,7 @@ def start_sequence(self):
             self.Imaging_Thread.start()
         else:
             Settings.timelapse_running = False
-            UI_Update.timelapse_enable(self)
+            UI_Update.timelapse_update(self)
 
     except Exception as e:
         print(e)
