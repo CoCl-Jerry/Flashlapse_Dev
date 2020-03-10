@@ -81,7 +81,7 @@ def rainbow_run(self):
 def sundial_run(self):
     Settings.commands_list.clear()
     current_CMD = "2~2~" + \
-        str(self.sundial_spinBox.value() * 1000) + "~5" + "\n"
+        str(self.sundial_spinBox.value()) + "~4" + "\n"
     Settings.commands_list.append(current_CMD)
     send_CMD(current_CMD)
 
