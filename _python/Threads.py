@@ -55,13 +55,14 @@ class MPreset(QThread):
         self._running = False
 
     def run(self):
-        Commands.clear_lights()
+
         while Settings.motionPreset_running:
             if not Settings.motionPreset_mode:
+                Commands.clear_lights()
                 Settings.current_CMD = "1~5~15~0~0~0~255~100\n4\n"
                 Commands.send_CMD(Settings.current_CMD)
 
-                for x in range(Settings.gravitropism_wait * 1):
+                for x in range(Settings.gravitropism_wait * 60):
                     for x in range(60):
                         sleep(1)
                         if not Settings.motionPreset_running:
@@ -75,7 +76,7 @@ class MPreset(QThread):
                     Commands.send_CMD(Settings.current_CMD)
                     Settings.motionPreset_running = False
             else:
-                for x in range(Settings.rotateDelay * 1):
+                for x in range(Settings.rotateDelay * 60):
                     for x in range(60):
                         sleep(1)
                         if not Settings.motionPreset_running:
@@ -83,7 +84,7 @@ class MPreset(QThread):
                     if not Settings.motionPreset_running:
                         break
                 if Settings.motionPreset_running:
-                    Commands.motor_rotate(rotateAmount)
+                    Commands.motor_rotate(Settings.rotateAmount)
                     Settings.motionPreset_running = False
 
 
