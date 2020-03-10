@@ -57,7 +57,7 @@ class MPreset(QThread):
     def run(self):
         Commands.clear_lights()
         while Settings.motionPreset_running:
-            if not motionPreset_mode:
+            if not settings.motionPreset_mode:
                 Settings.current_CMD = "1~5~15~0~0~0~255~100\n4\n"
                 Commands.send_CMD(current_CMD)
 
