@@ -127,6 +127,12 @@ def init(self):
     global germinationDirection
     germinationDirection = 0
 
+    global cycleTime
+    cycleTime = 24
+
+    global stripLength
+    stripLength = 5
+
     global lightingPreset_mode
     lightingPreset_mode = 0
 

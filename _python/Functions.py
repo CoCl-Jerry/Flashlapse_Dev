@@ -151,8 +151,13 @@ def start_lighting_preset(self):
             elif Settings.germinationDirection == 7:
                 Settings.send_commands_list.append(
                     "1~0~6~" + Settings.current_CMD)
-        Commands.deploy_lights(Settings.send_commands_list)
-        Settings.send_commands_list.clear()
+            Commands.deploy_lights(Settings.send_commands_list)
+            Settings.send_commands_list.clear()
+
+        else:
+            current_CMD = "2~2~" + str(self.cycleTime_spinBox.value * 189473) + \
+                "~" + str(self.stripLength_spinBox.value) + "\n"
+            send_CMD(current_CMD)
 
     else:
         Settings.lightingPreset_running = False
