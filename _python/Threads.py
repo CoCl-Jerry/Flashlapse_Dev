@@ -284,7 +284,7 @@ class Email(QThread):
         sys.path.insert(0, '../../HP')
         import Email
         body = None
-        fromaddr = "notification_noreply@coseinstruments.com"
+        fromaddr = "notification_noreply@cosecloud.com"
         toaddr = Settings.email
         msg = MIMEMultipart()
         msg['From'] = fromaddr

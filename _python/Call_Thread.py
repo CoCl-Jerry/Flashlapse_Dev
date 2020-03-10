@@ -155,9 +155,9 @@ def start_sequence(self):
 
             self.Imaging_Thread = Threads.Image()
             self.Imaging_Thread.started.connect(
-                lambda: UI_Update.timelapse_disable(self))
+                lambda: UI_Update.timelapse_update(self))
             self.Imaging_Thread.finished.connect(
-                lambda: UI_Update.timelapse_enable(self))
+                lambda: UI_Update.timelapse_update(self))
             self.Imaging_Thread.capturing.connect(
                 lambda: UI_Update.imaging_disable(self))
             self.Imaging_Thread.complete.connect(

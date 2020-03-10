@@ -53,20 +53,18 @@ def imaging_enable(self):
     self.Misc_Frame.setEnabled(True)
 
 
-def timelapse_disable(self):
+def timelapse_update(self):
     if(Settings.storage_mode):
         self.startRoutines_pushButton.setText("End CLOUD Image Sequence")
     else:
         self.startRoutines_pushButton.setText("End LOCAL Image Sequence")
-    self.Misc_Frame.setEnabled(False)
-
-
-def timelapse_enable(self):
-    if(Settings.storage_mode):
-        self.startRoutines_pushButton.setText("Start CLOUD Image Sequence")
+    if Settings.timelapse_running:
+        self.Misc_Frame.setEnabled(False)
     else:
-        self.startRoutines_pushButton.setText("Start LOCAL Image Sequence")
-    self.Misc_Frame.setEnabled(True)
+        self.Misc_Frame.setEnabled(True)
+        self.Progress_Label.setText(
+            "Progress: 0/" + str(Settings.total))
+        self.Progress_Bar.setValue(0)
 
 
 def lightingPreset_update(self):
