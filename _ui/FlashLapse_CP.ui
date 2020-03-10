@@ -1257,7 +1257,7 @@ p, li { white-space: pre-wrap; }
        </widget>
       </widget>
      </widget>
-     <widget class="QTabWidget" name="MotionPreset_tabWidget">
+     <widget class="QTabWidget" name="motionPreset_tabWidget">
       <property name="geometry">
        <rect>
         <x>420</x>
