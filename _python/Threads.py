@@ -211,7 +211,9 @@ class Image(QThread):
 
     def run(self):
         if(not os.path.isdir(Settings.full_dir)):
-            os.mkdir(Settings.full_dir)
+            original_umask = os.umask(0)
+            os.mkdir(Settings.full_dir, 0777)
+            os.umask(original_umask)
         for i in range(Settings.total):
             Settings.current = i
             sleep(0.2)
