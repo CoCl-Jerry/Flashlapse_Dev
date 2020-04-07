@@ -4,9 +4,10 @@ import Commands
 import PyQt5
 from PyQt5 import QtCore, QtGui, QtWidgets
 
+import base64
 import os
 import re
-
+import requests
 
 def Camera_update(self):
     Settings.AOI_X = self.xAxis_horizontalSlider.sliderPosition() / 100
@@ -57,6 +58,27 @@ def select_directory(self):
         self.directory_label.setText(Settings.full_dir)
     UI_Update.validate_input(self)
 
+def CloudType_Change(index):
+    Settings.cloudTypeComboSelection = index
+    Settings.cloudTypeComboText      = self.cloudType_ComboBox.itemText(index)
+    
+def CloudTypeCombo_Change(self, index):
+    self.cloudSettings_StackedWidget.setCurrentIndex(index) #Cross-reference the CloudSettings Stack and change its index
+    CloudType_Change(index)
+    return
+
+def CloudSettingsStacked_Change(self, index):
+    self.cloudType_ComboBox.setCurrentIndex(index) #Cross-reference the CloudSettings Stack and change its index
+    CloudType_Change(index)
+    return
+
+def CyverseUsername_Change(self, text):
+    Settings.cyverseUsername = text
+    return
+
+def CyversePassword_Change(self, text):
+    Settings.cyversePassword = text
+    return
 
 def Email_Change(self):
     valid = None
@@ -83,6 +105,23 @@ def Save_Email(self):
     file.write(Settings.email)
     file.close()
 
+def Cyverse_Confirm(self):
+    uri = "https://data.cyverse.org/dav/iplant/home/"
+    headers = { 'content-type': 'image/jpeg',
+                'Authorization': "Basic " + base64.b64encode(Settings.cyverseUsername + ":" + Settings.cyversePassword) }
+    r = requests.get(uri, headers=headers);
+    if( r.status_code != 200 ):
+        print("Failed authentication!") #Put actual logic in place to trigger a popup or some error message that flashes
+    return
+
+def Cyverse_Save(self):
+    #open("../_temp/.cyverse_data.txt", "w").close()  # Is this really necessary?
+    cyverse_data_path = "../_temp/.cyverse_data.txt"
+    file = open(cyverse_data_path, "w")
+    file.write(Settings.cyverseUsername + '\n')
+    file.write(Settings.cyversePassword) #Not the smartest idea to store this in cleartext, but will need to edit this in the future to encrypt the password, or not save it
+    file.close()
+    os.chmod(cyverse_data_path, 0600) #Only allow readable/writeable for current user
 
 def zoomSliderChange(self):
     self.xAxis_label.setText(

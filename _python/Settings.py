@@ -109,6 +109,18 @@ def init(self):
     global email
     email = ""
 
+    global cloudTypeComboSelection
+    cloudTypeComboSelection = 0
+
+    global cloudTypeComboText
+    cloudTypeComboSelection = ""
+
+    global cyverseUsername
+    cyverseUsername = ""
+
+    global cyversePassword
+    cyversePassword = ""
+
     global storage_mode
     storage_mode = 0
 

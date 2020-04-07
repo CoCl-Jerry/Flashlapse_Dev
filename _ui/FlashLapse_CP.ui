@@ -1836,7 +1836,7 @@ p, li { white-space: pre-wrap; }
             <item>
              <layout class="QHBoxLayout" name="horizontalLayout_4">
               <item>
-               <widget class="QStackedWidget" name="stackedWidget">
+               <widget class="QStackedWidget" name="cloudSettings_stackedWidget">
                 <property name="minimumSize">
                  <size>
                   <width>0</width>
@@ -1859,7 +1859,7 @@ p, li { white-space: pre-wrap; }
                  <number>1</number>
                 </property>
                 <property name="currentIndex">
-                 <number>0</number>
+                 <number>1</number>
                 </property>
                 <widget class="QWidget" name="dropboxSettings">
                  <widget class="QWidget" name="verticalLayoutWidget">

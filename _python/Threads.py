@@ -1,6 +1,9 @@
 import Settings
 import Commands
+
 import os
+import requests
+from requests.auth import HTTPBasicAuth
 import sys
 import subprocess
 import smtplib
@@ -271,6 +274,44 @@ class Dropbox(QThread):
                 count += 1
             if not Settings.dropbox_running:
                 break
+
+
+class Cyverse(QThread):
+    def __init__(self):
+        QThread.__init__(self)
+        Settings.cyverse_running = True
+
+    def __del__(self):
+        self._running = False
+
+    def run(self):
+        base_uri    = "https://data.cyverse.org/dav/iplant/home/"
+        uri         = base_uri + Settings.cyverseUsername + "/" + 'FlashLapse'
+        headers = { 'content-type': 'image/jpeg' }
+        auth = HTTPBasicAuth(Settings.cyverseUsername, Settings.cyversePassword)
+        requests.request(method='MKCOL', url=uri, headers=headers, auth=auth)
+        uri = uri + '/' + Settings.date
+        requests.request(method='MKCOL', url=uri, headers=headers, auth=auth)
+        uri = uri + '/' + Settings.cpuserial
+        requests.request(method='MKCOL', url=uri, headers=headers, auth=auth)
+        count = 0
+        while (count < Settings.total):
+            if (len(Settings.file_list) > 0):
+                fh = open(Settings.file_list[0], 'rb')
+                requests.request(method='PUT', 
+                                 url=uri, 
+                                 headers=headers, 
+                                 auth=auth, 
+                                 data=fh)
+                fh.close()
+                #os.system("rm " + Settings.file_list[0])
+                del Settings.file_list[0]
+                count += 1
+            if not Settings.dropbox_running:
+                break
+
+        return
+
 
 
 class Email(QThread):

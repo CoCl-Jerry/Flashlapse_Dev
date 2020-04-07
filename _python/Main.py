@@ -107,6 +107,11 @@ class MainWindow(QMainWindow, FlashLapse_UI.Ui_MainWindow):
             lambda: Functions.ISD_Change(self))
         self.directory_pushButton.clicked.connect(
             lambda: Functions.select_directory(self))
+        
+        self.cloudType_ComboBox.currentIndexChanged.connect(
+            lambda i: Functions.CloudTypeCombo_Change(self,i))
+        self.cloudSettings_StackedWidget.currentChanged.connect(
+            lambda i: Functions.CloudSettingsStacked_Change(self,i))
 
         self.Email_lineEdit.textChanged.connect(
             lambda: Functions.Email_Change(self))
@@ -114,6 +119,21 @@ class MainWindow(QMainWindow, FlashLapse_UI.Ui_MainWindow):
             lambda: Functions.Email_Entered(self))
         self.emailDefault_pushButton.clicked.connect(
             lambda: Functions.Save_Email(self))
+
+
+        cyverse_data_path = "../_temp/.cyverse_data.txt"
+        with open(cyverse_data_path, "r") as fh:
+            self.cyverseUsername_lineEdit.setText(fh.readline())
+            self.cyversePassword_lineEdit.setText(fh.readline())
+            fh.close()
+        self.cyverseUsername_lineEdit.textChanged.connect(
+            lambda t: Functions.CyverseUsername_Change(self, t))
+        self.cyversePassword_lineEdit.textChanged.connect(
+            lambda: Functions.CyversePassword_Change(self, t))
+        self.cyverseConfirm_pushButton.clicked.connect(
+            lambda: Functions.Cyverse_Confirm(self))
+        self.cyverseDefault_pushButton.clicked.connect(
+            lambda: Functions.Cyverse_Save(self))
 
         self.storage_tabWidget.currentChanged.connect(
             lambda: UI_Update.validate_input(self))
