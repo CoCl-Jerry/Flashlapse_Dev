@@ -1494,10 +1494,10 @@ p, li { white-space: pre-wrap; }
           <number>50</number>
          </property>
          <property name="maximum">
-          <number>3240</number>
+          <number>2592</number>
          </property>
          <property name="value">
-          <number>2464</number>
+          <number>2592</number>
          </property>
         </widget>
        </item>
@@ -1510,17 +1510,17 @@ p, li { white-space: pre-wrap; }
           <number>50</number>
          </property>
          <property name="maximum">
-          <number>2464</number>
+          <number>1944</number>
          </property>
          <property name="value">
-          <number>2464</number>
+          <number>1944</number>
          </property>
         </widget>
        </item>
        <item row="1" column="0">
         <widget class="QLabel" name="xRange_label">
          <property name="text">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600; color:#000000;&quot;&gt;[ 50 , 3240 ]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600; color:#000000;&quot;&gt;[ 50 , 2592 ]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
@@ -1537,7 +1537,7 @@ p, li { white-space: pre-wrap; }
        <item row="1" column="2">
         <widget class="QLabel" name="yRange_label">
          <property name="text">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600; color:#000000;&quot;&gt;[ 50 , 2464 ]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600; color:#000000;&quot;&gt;[ 50 , 1944 ]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
@@ -1859,7 +1859,7 @@ p, li { white-space: pre-wrap; }
                  <number>1</number>
                 </property>
                 <property name="currentIndex">
-                 <number>1</number>
+                 <number>0</number>
                 </property>
                 <widget class="QWidget" name="dropboxSettings">
                  <widget class="QWidget" name="verticalLayoutWidget">

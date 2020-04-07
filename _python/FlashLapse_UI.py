@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'FlashLapse_CP.ui'
 #
-# Created by: PyQt5 UI code generator 5.10.1
+# Created by: PyQt5 UI code generator 5.11.3
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -542,14 +542,14 @@ class Ui_MainWindow(object):
         self.gridLayout_2.addWidget(self.x_label, 0, 1, 1, 1)
         self.x_resolution_spinBox = QtWidgets.QSpinBox(self.gridLayoutWidget_2)
         self.x_resolution_spinBox.setMinimum(50)
-        self.x_resolution_spinBox.setMaximum(3240)
-        self.x_resolution_spinBox.setProperty("value", 2464)
+        self.x_resolution_spinBox.setMaximum(2592)
+        self.x_resolution_spinBox.setProperty("value", 2592)
         self.x_resolution_spinBox.setObjectName("x_resolution_spinBox")
         self.gridLayout_2.addWidget(self.x_resolution_spinBox, 0, 0, 1, 1)
         self.y_resolution_spinBox = QtWidgets.QSpinBox(self.gridLayoutWidget_2)
         self.y_resolution_spinBox.setMinimum(50)
-        self.y_resolution_spinBox.setMaximum(2464)
-        self.y_resolution_spinBox.setProperty("value", 2464)
+        self.y_resolution_spinBox.setMaximum(1944)
+        self.y_resolution_spinBox.setProperty("value", 1944)
         self.y_resolution_spinBox.setObjectName("y_resolution_spinBox")
         self.gridLayout_2.addWidget(self.y_resolution_spinBox, 0, 2, 1, 1)
         self.xRange_label = QtWidgets.QLabel(self.gridLayoutWidget_2)
@@ -832,7 +832,7 @@ class Ui_MainWindow(object):
         self.lightingPreset_tabWidget.setCurrentIndex(0)
         self.motionPreset_tabWidget.setCurrentIndex(0)
         self.storage_tabWidget.setCurrentIndex(1)
-        self.cloudSettings_stackedWidget.setCurrentIndex(1)
+        self.cloudSettings_stackedWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -952,9 +952,9 @@ class Ui_MainWindow(object):
         self.x_label.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\">X</p></body></html>"))
         self.x_resolution_spinBox.setSuffix(_translate("MainWindow", " px"))
         self.y_resolution_spinBox.setSuffix(_translate("MainWindow", " px"))
-        self.xRange_label.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-weight:600; color:#000000;\">[ 50 , 3240 ]</span></p></body></html>"))
+        self.xRange_label.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-weight:600; color:#000000;\">[ 50 , 2592 ]</span></p></body></html>"))
         self.CoreCtr_label_6.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><br/></p></body></html>"))
-        self.yRange_label.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-weight:600; color:#000000;\">[ 50 , 2464 ]</span></p></body></html>"))
+        self.yRange_label.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-weight:600; color:#000000;\">[ 50 , 1944 ]</span></p></body></html>"))
         self.resolution_label.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-weight:600;\">IMAGING RESOLUTION</span></p></body></html>"))
         self.format_label.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-weight:600;\">IMAGE FORMAT</span></p></body></html>"))
         self.Progress_Label.setText(_translate("MainWindow", "Progress: 0 / 6"))

@@ -4,10 +4,10 @@ import Commands
 import PyQt5
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-import base64
 import os
 import re
 import requests
+from requests.auth import HTTPBasicAuth
 
 def Camera_update(self):
     Settings.AOI_X = self.xAxis_horizontalSlider.sliderPosition() / 100
@@ -58,18 +58,18 @@ def select_directory(self):
         self.directory_label.setText(Settings.full_dir)
     UI_Update.validate_input(self)
 
-def CloudType_Change(index):
+def CloudType_Change(self,index):
     Settings.cloudTypeComboSelection = index
     Settings.cloudTypeComboText      = self.cloudType_ComboBox.itemText(index)
     
 def CloudTypeCombo_Change(self, index):
-    self.cloudSettings_StackedWidget.setCurrentIndex(index) #Cross-reference the CloudSettings Stack and change its index
-    CloudType_Change(index)
+    self.cloudSettings_stackedWidget.setCurrentIndex(index) #Cross-reference the CloudSettings Stack and change its index
+    CloudType_Change(self,index)
     return
 
 def CloudSettingsStacked_Change(self, index):
     self.cloudType_ComboBox.setCurrentIndex(index) #Cross-reference the CloudSettings Stack and change its index
-    CloudType_Change(index)
+    CloudType_Change(self,index)
     return
 
 def CyverseUsername_Change(self, text):
@@ -106,12 +106,16 @@ def Save_Email(self):
     file.close()
 
 def Cyverse_Confirm(self):
-    uri = "https://data.cyverse.org/dav/iplant/home/"
-    headers = { 'content-type': 'image/jpeg',
-                'Authorization': "Basic " + base64.b64encode(Settings.cyverseUsername + ":" + Settings.cyversePassword) }
-    r = requests.get(uri, headers=headers);
+    uri = "https://data.cyverse.org/dav/iplant/home/" + Settings.cyverseUsername
+    print(uri)
+    auth = HTTPBasicAuth(Settings.cyverseUsername, Settings.cyversePassword)
+    print(auth.__dict__)
+    r = requests.get(uri, auth=auth);
     if( r.status_code != 200 ):
-        print("Failed authentication!") #Put actual logic in place to trigger a popup or some error message that flashes
+        print("ERR: Failed authentication!") #Put actual logic in place to trigger a popup or some error message that flashes
+        print(r)
+    else:
+        print("Authentication success") #Put actual logic in place to trigger a popup or some error message that flashes
     return
 
 def Cyverse_Save(self):
@@ -121,7 +125,7 @@ def Cyverse_Save(self):
     file.write(Settings.cyverseUsername + '\n')
     file.write(Settings.cyversePassword) #Not the smartest idea to store this in cleartext, but will need to edit this in the future to encrypt the password, or not save it
     file.close()
-    os.chmod(cyverse_data_path, 0600) #Only allow readable/writeable for current user
+    os.chmod(cyverse_data_path, 0o600) #Only allow readable/writeable for current user
 
 def zoomSliderChange(self):
     self.xAxis_label.setText(

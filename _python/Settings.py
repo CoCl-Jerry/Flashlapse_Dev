@@ -75,9 +75,9 @@ def init(self):
     global livetime
     livetime = 1
     global x_res
-    x_resolution = 2464
+    x_resolution = 2592
     global y_res
-    y_resolution = 2464
+    y_resolution = 1944
 
     global sequence_name
     sequence_name = ""
@@ -113,7 +113,7 @@ def init(self):
     cloudTypeComboSelection = 0
 
     global cloudTypeComboText
-    cloudTypeComboSelection = ""
+    cloudTypeComboText = ""
 
     global cyverseUsername
     cyverseUsername = ""

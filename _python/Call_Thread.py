@@ -172,11 +172,17 @@ def start_sequence(self):
 
     if(Settings.storage_mode):
         try:
-            self.Dropbox_Thread = Threads.Dropbox()
-            self.Dropbox_Thread.start()
+            if Settings.cloudTypeComboSelection == 0:
+                print("Starting Dropbox Sync Thread")
+                self.Dropbox_Thread = Threads.Dropbox()
+                self.Dropbox_Thread.start()
 
-            self.Email_Thread = Threads.Email()
-            self.Email_Thread.start()
+                self.Email_Thread = Threads.Email()
+                self.Email_Thread.start()
+            elif Settings.cloudTypeComboSelection == 1:
+                print("Starting Cyverse Sync Thread")
+                self.Cyverse_Thread = Threads.Cyverse()
+                self.Cyverse_Thread.start()
 
         except Exception as e:
             print(e)
