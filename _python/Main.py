@@ -36,6 +36,7 @@ class MainWindow(QMainWindow, FlashLapse_UI.Ui_MainWindow):
         super(self.__class__, self).__init__()
         self.setupUi(self)  # gets defined in the UI file
         Settings.init(self)
+        Call_Thread.sensor_init(self)
         Commands.startup()
 
         fh = open("../_temp/save_data.txt", "r")

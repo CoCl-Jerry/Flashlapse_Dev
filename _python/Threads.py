@@ -4,6 +4,7 @@ import os
 import sys
 import subprocess
 import smtplib
+import Adafruit_DHT
 
 from PyQt5 import QtCore
 from email.mime.multipart import MIMEMultipart
@@ -308,3 +309,22 @@ class Email(QThread):
         server.login(Email.user, Email.password)
         text = msg.as_string()
         server.sendmail(fromaddr, toaddr, text)
+
+
+class Sensor(QThread):
+    update = QtCore.pyqtSignal()
+
+    def __init__(self):
+        QThread.__init__(self)
+
+    def __del__(self):
+        self._running = False
+
+    def run(self):
+
+        while True:
+            Settings.humidity, Settings.temperature = Adafruit_DHT.read_retry(
+                Settings.DHT_SENSOR, 18)
+            if Settings.humidity is not None and Settings.temperature is not None:
+                self.update.emit()
+            sleep(2)

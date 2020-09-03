@@ -180,3 +180,13 @@ def start_sequence(self):
 
         except Exception as e:
             print(e)
+
+
+def sensor_init(self):
+    try:
+        self.Sensor_Thread = Threads.Sensor()
+        self.Sensor_Thread.update.connect(
+            lambda: UI_Update.sensor_update(self))
+        self.Sensor_Thread.start()
+    except Exception as e:
+        print(e)

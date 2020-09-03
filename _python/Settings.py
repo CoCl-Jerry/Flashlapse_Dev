@@ -15,6 +15,15 @@ def init(self):
     except:
         UI_Update.desync(self)
 
+    global DHT_SENSOR
+    DHT_SENSOR = Adafruit_DHT.DHT22
+
+    global humidity
+    humidity = 0
+
+    global temperature
+    temperature = 0
+
     global commands_list
     commands_list = []
 
