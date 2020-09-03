@@ -105,6 +105,7 @@ def IR_toggle(self):
     else:
         self.IR_pushButton.setText("IR STATUS:OFF")
         current_CMD = "9~0~\n"
+    Settings.IR_stat = not Settings.IR_stat
     send_CMD(current_CMD)
 
 
