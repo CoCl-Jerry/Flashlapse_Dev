@@ -327,4 +327,4 @@ class Sensor(QThread):
                 Settings.DHT_SENSOR, 18)
             if Settings.humidity is not None and Settings.temperature is not None:
                 self.update.emit()
-            sleep(2)
+            sleep(1)
