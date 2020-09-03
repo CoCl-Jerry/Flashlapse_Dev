@@ -1,8 +1,8 @@
 [Desktop Entry]
 Name=Flashlapse
 Comment=Starts Flashlapse
-Icon=/home/pi/Flashlapse_Dev/_image/logo.ico
-Exec=sh /home/pi/Flashlapse_Dev/Flashlapse.sh
+Icon=/home/pi/Documents/Flashlapse_Dev/_image/logo.ico
+Exec=sh /home/pi/Documents/Flashlapse_Dev/Flashlapse.sh
 Type=Application
 Encoding=UTF-8
 Terminal=true
