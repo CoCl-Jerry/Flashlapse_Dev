@@ -16,12 +16,12 @@ def light_reset(self):
     current_CMD = "0\n"
     send_CMD(current_CMD)
 
-    self.R_spinBox.setValue(0)
+    self.R_spinBox.setValue(50)
     self.G_spinBox.setValue(0)
     self.B_spinBox.setValue(0)
     self.W_spinBox.setValue(0)
     self.Start_spinBox.setValue(1)
-    self.End_spinBox.setValue(20)
+    self.End_spinBox.setValue(85)
     self.BRT_spinBox.setValue(20)
 
     Settings.commands_list.clear()
