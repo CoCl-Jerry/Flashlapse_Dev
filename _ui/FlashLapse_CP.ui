@@ -1999,7 +1999,7 @@ p, li { white-space: pre-wrap; }
        <x>13</x>
        <y>10</y>
        <width>211</width>
-       <height>101</height>
+       <height>129</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_12">
@@ -2077,7 +2077,7 @@ p, li { white-space: pre-wrap; }
       </rect>
      </property>
      <property name="text">
-      <string>Start LOCAL Image Sequence</string>
+      <string>Start Sequence</string>
      </property>
     </widget>
     <widget class="QFrame" name="frame_4">

@@ -27,6 +27,9 @@ def init(self):
     global cycle_running
     cycle_running = False
 
+    global IR_stat
+    IR_stat = False
+
     global cycle_time
     cycle_time = 60
 

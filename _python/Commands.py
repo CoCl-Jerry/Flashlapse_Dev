@@ -98,6 +98,16 @@ def motorSliderChange(self):
     self.motorSpeed_label.setText("Motor RPM: " + str(Settings.RPM))
 
 
+def IR_toggle(self):
+    if not Settings.IR_stat:
+        self.IR_pushButton.setText("IR STATUS:ON")
+        current_CMD = "9~1~\n"
+    else:
+        self.IR_pushButton.setText("IR STATUS:OFF")
+        current_CMD = "9~0~\n"
+    send_CMD(current_CMD)
+
+
 def motorSliderRelease(self):
     current_CMD = "6~" + str(int(60 / (2.038 * Settings.RPM))) + "\n"
     send_CMD(current_CMD)
