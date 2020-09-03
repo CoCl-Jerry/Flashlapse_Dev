@@ -1999,7 +1999,7 @@ p, li { white-space: pre-wrap; }
        <x>13</x>
        <y>10</y>
        <width>211</width>
-       <height>129</height>
+       <height>91</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_12">
@@ -2084,9 +2084,9 @@ p, li { white-space: pre-wrap; }
      <property name="geometry">
       <rect>
        <x>9</x>
-       <y>120</y>
+       <y>110</y>
        <width>211</width>
-       <height>91</height>
+       <height>101</height>
       </rect>
      </property>
      <property name="frameShape">
@@ -2099,72 +2099,23 @@ p, li { white-space: pre-wrap; }
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>10</y>
+        <y>20</y>
         <width>191</width>
-        <height>70</height>
+        <height>51</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout_7">
-       <item row="2" column="1">
-        <widget class="QSpinBox" name="log_spinBox">
-         <property name="toolTip">
-          <string>total logging duration</string>
-         </property>
-         <property name="suffix">
-          <string> min</string>
-         </property>
-         <property name="minimum">
-          <number>1</number>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="1">
-        <widget class="QDoubleSpinBox" name="sample_doubleSpinBox">
-         <property name="toolTip">
-          <string>Time between each sample</string>
-         </property>
-         <property name="suffix">
-          <string> s</string>
-         </property>
-         <property name="decimals">
-          <number>1</number>
-         </property>
-         <property name="minimum">
-          <double>0.100000000000000</double>
-         </property>
-         <property name="singleStep">
-          <double>0.100000000000000</double>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="0">
-        <widget class="QPushButton" name="log_pushButton">
-         <property name="toolTip">
-          <string>Start logging data, all logs are saved on the desktop</string>
-         </property>
+       <item row="0" column="1">
+        <widget class="QLabel" name="temperatureData_label">
          <property name="text">
-          <string>LOG FOR</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="0">
-        <widget class="QLabel" name="sampleRate_label">
-         <property name="text">
-          <string>Sample Rate:</string>
+          <string>NO_DATA</string>
          </property>
         </widget>
        </item>
        <item row="0" column="0">
         <widget class="QLabel" name="temperature_label">
          <property name="text">
-          <string>Temperature:</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="1">
-        <widget class="QLabel" name="temperatureData_label">
-         <property name="text">
-          <string>NO_DATA</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Temperature:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
         </widget>
        </item>
