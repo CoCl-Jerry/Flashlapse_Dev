@@ -130,8 +130,12 @@ class MainWindow(QMainWindow, FlashLapse_UI.Ui_MainWindow):
         self.MotionPreset_pushButton.clicked.connect(
             lambda: Call_Thread.start_motion_preset(self))
 
+        self.IR_pushButton.clicked.connect(
+            lambda: Commands.IR_toggle(self))
 
 # main function
+
+
 def main():
     # a new app instance
     app = QApplication(sys.argv)
