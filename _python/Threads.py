@@ -4,7 +4,7 @@ import os
 import sys
 import subprocess
 import smtplib
-import Adafruit_DHT
+import adafruit_dht
 
 from PyQt5 import QtCore
 from email.mime.multipart import MIMEMultipart
