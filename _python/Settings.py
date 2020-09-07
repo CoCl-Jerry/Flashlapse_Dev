@@ -17,7 +17,7 @@ def init(self):
         UI_Update.desync(self)
 
     global DHT_SENSOR
-    DHT_SENSOR = adafruit_dht.DHT22
+    DHT_SENSOR = Adafruit_DHT.DHT22
 
     global humidity
     humidity = 0

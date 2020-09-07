@@ -323,7 +323,7 @@ class Sensor(QThread):
     def run(self):
 
         while True:
-            Settings.humidity, Settings.temperature = adafruit_dht.read_retry(
+            Settings.humidity, Settings.temperature = Adafruit_DHT.read_retry(
                 Settings.DHT_SENSOR, 18)
             if Settings.humidity is not None and Settings.temperature is not None:
                 self.update.emit()
