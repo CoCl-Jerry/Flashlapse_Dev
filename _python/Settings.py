@@ -1,7 +1,7 @@
 import serial
 import time
 import UI_Update
-import adafruit_dht
+import Adafruit_DHT
 
 
 def init(self):
