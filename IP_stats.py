@@ -26,6 +26,7 @@
 
 import time
 import subprocess
+import socket
 
 from board import SCL, SDA
 import busio
@@ -40,6 +41,7 @@ i2c = busio.I2C(SCL, SDA)
 # The first two parameters are the pixel width and pixel height.  Change these
 # to the right size for your display!
 disp = adafruit_ssd1306.SSD1306_I2C(128, 64, i2c)
+BORDER = 2
 
 # Clear display.
 disp.fill(0)
@@ -78,24 +80,26 @@ while True:
 
     # Draw a black filled box to clear the image.
     draw.rectangle((0, 0, width, height), outline=0, fill=0)
+    draw.rectangle((0, 0, width, height), outline=255, fill=255)
+    
+    draw.rectangle(
+    (BORDER, BORDER, width - BORDER - 1, height - BORDER - 1),
+    outline=0,
+    fill=0,)
+    
+    font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 12)
+    font2 = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 20)
 
     # Shell scripts for system monitoring from here:
     # https://unix.stackexchange.com/questions/119126/command-to-display-memory-usage-disk-usage-and-cpu-load
     cmd = "hostname -I | cut -d' ' -f1"
     IP = subprocess.check_output(cmd, shell=True).decode("utf-8")
-    cmd = "top -bn1 | grep load | awk '{printf \"CPU Load: %.2f\", $(NF-2)}'"
-    CPU = subprocess.check_output(cmd, shell=True).decode("utf-8")
-    cmd = "free -m | awk 'NR==2{printf \"Mem: %s/%s MB  %.2f%%\", $3,$2,$3*100/$2 }'"
-    MemUsage = subprocess.check_output(cmd, shell=True).decode("utf-8")
-    cmd = 'df -h | awk \'$NF=="/"{printf "Disk: %d/%d GB  %s", $3,$2,$5}\''
-    Disk = subprocess.check_output(cmd, shell=True).decode("utf-8")
 
     # Write four lines of text.
-
-    draw.text((x, top + 0), "IP: " + IP, font=font, fill=255)
-    draw.text((x, top + 8), CPU, font=font, fill=255)
-    draw.text((x, top + 16), MemUsage, font=font, fill=255)
-    draw.text((x, top + 25), Disk, font=font, fill=255)
+    
+    draw.text((x+38, top + 5), "COSE", font=font2, fill=255)
+    draw.text((x+10, top + 27), "IP: " + IP, font=font, fill=255)
+    draw.text((x+10, top + 40), "NAME: "+socket.gethostname(), font=font, fill=255)
 
     # Display image.
     disp.image(image)
