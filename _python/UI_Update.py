@@ -72,10 +72,10 @@ def timelapse_update(self):
     if Settings.timelapse_running:
         if(Settings.storage_mode):
             self.startRoutines_pushButton.setText(
-                "End CLOUD Image Sequence")
+                "End CLOUD Sequence")
         else:
             self.startRoutines_pushButton.setText(
-                "End LOCAL Image Sequence")
+                "End LOCAL Sequence")
         self.Misc_Frame.setEnabled(False)
     else:
         if(Settings.storage_mode):
