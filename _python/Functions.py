@@ -72,9 +72,7 @@ def Cyverse_Save(self):
 
 
 def Cyverse_Confirm(self):
-    self.storage_tabWidget.setEnabled(False)
-    self.cyverseConfirm_pushButton.setText(
-        "Authenticating CyVerse Credentials...")
+    UI_Update.CV_authenticating(self)
     uri = "https://data.cyverse.org/dav/iplant/home/" + \
         self.cyverseUsername_lineEdit.text()
     print(uri)

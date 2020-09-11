@@ -20,7 +20,8 @@ def desync(self):
 
 
 def CV_authenticating(self):
-    self.storage_tabWidget.setEnabled(False)
+    self.cyverseUsername_lineEdit.setEnabled(False)
+    self.cyversePassword_lineEdit.setEnabled(False)
     self.cyverseConfirm_pushButton.setText(
         "Authenticating CyVerse Credentials...")
 
