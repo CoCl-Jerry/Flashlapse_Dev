@@ -21,7 +21,7 @@ class Ui_MainWindow(object):
         MainWindow.setSizePolicy(sizePolicy)
         MainWindow.setMinimumSize(QtCore.QSize(1000, 670))
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("../_image/logo.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("../_image/icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         MainWindow.setWindowIcon(icon)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
@@ -806,7 +806,7 @@ class Ui_MainWindow(object):
         self.actionCreate_Timelapse.setObjectName("actionCreate_Timelapse")
 
         self.retranslateUi(MainWindow)
-        self.Control_Tab.setCurrentIndex(2)
+        self.Control_Tab.setCurrentIndex(0)
         self.lightingPreset_tabWidget.setCurrentIndex(0)
         self.motionPreset_tabWidget.setCurrentIndex(0)
         self.storage_tabWidget.setCurrentIndex(1)
