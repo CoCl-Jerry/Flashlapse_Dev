@@ -2051,9 +2051,9 @@ p, li { white-space: pre-wrap; }
      <property name="geometry">
       <rect>
        <x>9</x>
-       <y>110</y>
+       <y>150</y>
        <width>211</width>
-       <height>101</height>
+       <height>61</height>
       </rect>
      </property>
      <property name="frameShape">
@@ -2066,7 +2066,7 @@ p, li { white-space: pre-wrap; }
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>40</y>
+        <y>10</y>
         <width>191</width>
         <height>51</height>
        </rect>
