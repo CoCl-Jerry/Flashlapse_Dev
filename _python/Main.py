@@ -128,7 +128,9 @@ class MainWindow(QMainWindow, FlashLapse_UI.Ui_MainWindow):
             with open(Settings.cyverse_data_path, "r") as fh:
                 self.cyverseUsername_lineEdit.setText(
                     fh.readline().strip('\n'))
-                self.cyversePassword_lineEdit.setText(fh.readline().strip('\n')
+                self.cyversePassword_lineEdit.setText(
+                    fh.readline().strip('\n'))
+            fh.close()
         except FileNotFoundError:
             pass
 
@@ -138,8 +140,8 @@ class MainWindow(QMainWindow, FlashLapse_UI.Ui_MainWindow):
 
 def main():
     # a new app instance
-    app=QApplication(sys.argv)
-    form=MainWindow()
+    app = QApplication(sys.argv)
+    form = MainWindow()
     form.show()
 
     # without this, the script exits immediately.
