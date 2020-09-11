@@ -68,26 +68,6 @@ def Cyverse_Save(self):
     file.close()
 
 
-def Cyverse_Confirm(self):
-    url = "https://data.cyverse.org/dav/iplant/home/" + \
-        self.cyverseUsername_lineEdit.text()
-    print(url)
-    auth = HTTPBasicAuth(self.cyverseUsername_lineEdit.text(),
-                         self.cyversePassword_lineEdit.text())
-    print(auth.__dict__)
-    r = requests.get(url, auth=auth)
-    if(r.status_code != 200):
-        # Put actual logic in place to trigger a popup or some error message that flashes
-        print("ERR: Failed authentication!")
-        print(r)
-        Settings.cyverse_authenticated = False
-    else:
-        # Put actual logic in place to trigger a popup or some error message that flashes
-        print("Authentication success")
-        Settings.cyverse_authenticated = True
-    UI_Update.CV_authenticated(self)
-
-
 def zoomSliderChange(self):
     self.xAxis_label.setText(
         "AXIS A: " + str(self.xAxis_horizontalSlider.sliderPosition() / 100))

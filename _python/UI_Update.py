@@ -18,6 +18,12 @@ def desync(self):
     self.Misc_Frame.setEnabled(False)
 
 
+def CV_authenticating(self):
+    self.storage_tabWidget.setEnabled(False)
+    self.cyverseConfirm_pushButton.setText(
+        "Authenticating CyVerse Credentials...")
+
+
 def CV_authenticated(self):
     self.storage_tabWidget.setEnabled(True)
     if Settings.cyverse_authenticated:

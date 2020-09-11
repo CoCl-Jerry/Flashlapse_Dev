@@ -94,6 +94,19 @@ def start_snapshot(self):
         print(e)
 
 
+def CV_authenticate(self):
+    try:
+        self.Auth_Thread = Threads.Auth()
+        self.Auth_Thread.started.connect(
+            lambda: UI_Update.CV_authenticating(self))
+        self.Auth_Thread.finished.connect(
+            lambda: UI_Update.CV_authenticated(self))
+        self.Auth_Thread.start()
+
+    except Exception as e:
+        print(e)
+
+
 def start_livefeed(self):
     try:
         Settings.livetime = self.liveFeed_spinBox.value()

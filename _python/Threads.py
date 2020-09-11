@@ -154,6 +154,33 @@ class Snap(QThread):
             camera.capture("../_temp/snapshot.jpg")
 
 
+class Auth(QThread):
+
+    def __init__(self):
+        QThread.__init__(self)
+
+    def __del__(self):
+        self._running = False
+
+    def run(self):
+        url = "https://data.cyverse.org/dav/iplant/home/" + \
+            self.cyverseUsername_lineEdit.text()
+        print(url)
+        auth = HTTPBasicAuth(self.cyverseUsername_lineEdit.text(),
+                             self.cyversePassword_lineEdit.text())
+        print(auth.__dict__)
+        r = requests.get(url, auth=auth)
+        if(r.status_code != 200):
+            # Put actual logic in place to trigger a popup or some error message that flashes
+            print("ERR: Failed authentication!")
+            print(r)
+            Settings.cyverse_authenticated = False
+        else:
+            # Put actual logic in place to trigger a popup or some error message that flashes
+            print("Authentication success")
+            Settings.cyverse_authenticated = True
+
+
 class Live(QThread):
 
     def __init__(self):

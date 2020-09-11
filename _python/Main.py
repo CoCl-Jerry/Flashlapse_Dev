@@ -129,7 +129,7 @@ class MainWindow(QMainWindow, FlashLapse_UI.Ui_MainWindow):
         self.cyverseDefault_pushButton.clicked.connect(
             lambda: Functions.Cyverse_Save(self))
         self.cyverseConfirm_pushButton.clicked.connect(
-            lambda: Functions.Cyverse_Confirm(self))
+            lambda: Call_Thread.CV_authenticate(self))
         try:
             with open(Settings.cyverse_data_path, "r") as fh:
                 self.cyverseUsername_lineEdit.setText(
