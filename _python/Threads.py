@@ -267,6 +267,4 @@ class Sensor(QThread):
                 log_file.write(dt_string + "\t" + "{0: 0.1f}".format(Settings.temperature) + "\t" +
                                "{0: 0.1f}".format(Settings.humidity) + "\n")
 
-                {0: 0.1f}.format(Settings.temperature)
-
             sleep(Settings.sample_time)
