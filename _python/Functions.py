@@ -132,44 +132,46 @@ def start_lighting_preset(self):
 
         if not self.lightingPreset_tabWidget.currentIndex():
             if Settings.germinationColor == 0:
-                Settings.current_CMD = "255~0~0~0~80\n"
+                Settings.current_CMD = "100~0~0~0~80\n"
             elif Settings.germinationColor == 1:
-                Settings.current_CMD = "0~255~0~0~80\n"
+                Settings.current_CMD = "0~100~0~0~80\n"
             elif Settings.germinationColor == 2:
-                Settings.current_CMD = "0~0~255~0~80\n"
+                Settings.current_CMD = "0~0~100~0~80\n"
             elif Settings.germinationColor == 3:
-                Settings.current_CMD = "255~0~255~0~80\n"
+                Settings.current_CMD = "100~0~100~0~80\n"
             elif Settings.germinationColor == 4:
-                Settings.current_CMD = "255~255~255~0~80\n"
+                Settings.current_CMD = "100~100~100~0~80\n"
             elif Settings.germinationColor == 5:
-                Settings.current_CMD = "0~0~0~255~50\n"
+                Settings.current_CMD = "0~0~0~100~50\n"
 
             if Settings.germinationDirection == 0:
                 Settings.send_commands_list.append(
-                    "1~0~19~" + Settings.current_CMD)
+                    "1~0~85~" + Settings.current_CMD)
             elif Settings.germinationDirection == 1:
                 Settings.send_commands_list.append(
-                    "1~5~15~" + Settings.current_CMD)
+                    "1~0~21~" + Settings.current_CMD)
+                Settings.send_commands_list.append(
+                    "1~63~85~" + Settings.current_CMD)
             elif Settings.germinationDirection == 2:
                 Settings.send_commands_list.append(
-                    "1~0~5~" + Settings.current_CMD)
-                Settings.send_commands_list.append(
-                    "1~14~19~" + Settings.current_CMD)
+                    "1~21~63~" + Settings.current_CMD)
             elif Settings.germinationDirection == 3:
                 Settings.send_commands_list.append(
-                    "1~9~19~" + Settings.current_CMD)
+                    "1~0~42~" + Settings.current_CMD)
             elif Settings.germinationDirection == 4:
                 Settings.send_commands_list.append(
-                    "1~0~10~" + Settings.current_CMD)
+                    "1~42~85~" + Settings.current_CMD)
             elif Settings.germinationDirection == 5:
                 Settings.send_commands_list.append(
-                    "1~6~13~" + Settings.current_CMD)
+                    "1~73~85~" + Settings.current_CMD)
+                Settings.send_commands_list.append(
+                    "1~0~10~" + Settings.current_CMD)
             elif Settings.germinationDirection == 6:
                 Settings.send_commands_list.append(
-                    "1~13~19~" + Settings.current_CMD)
+                    "1~10~31~" + Settings.current_CMD)
             elif Settings.germinationDirection == 7:
                 Settings.send_commands_list.append(
-                    "1~0~6~" + Settings.current_CMD)
+                    "1~52~73~" + Settings.current_CMD)
             Commands.deploy_lights(Settings.send_commands_list)
             Settings.send_commands_list.clear()
 

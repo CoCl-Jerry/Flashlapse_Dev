@@ -55,7 +55,7 @@ class MPreset(QThread):
         while Settings.motionPreset_running:
             if not Settings.motionPreset_mode:
                 Commands.clear_lights()
-                Settings.current_CMD = "1~5~15~0~0~0~255~100\n4\n"
+                Settings.current_CMD = "1~21~63~0~0~0~100~100\n4\n"
                 Commands.send_CMD(Settings.current_CMD)
 
                 for x in range(Settings.gravitropism_wait * 60):
@@ -68,7 +68,7 @@ class MPreset(QThread):
                 if Settings.motionPreset_running:
                     Commands.motor_rotate(90)
                     Commands.clear_lights()
-                    Settings.current_CMD = "1~0~10~0~0~0~255~100\n4\n"
+                    Settings.current_CMD = "1~52~73~0~0~0~100~100\n4\n"
                     Commands.send_CMD(Settings.current_CMD)
                     Settings.motionPreset_running = False
             else:
