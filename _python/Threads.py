@@ -166,8 +166,8 @@ class Auth(QThread):
         uri = "https://data.cyverse.org/dav/iplant/home/" + \
             Settings.cyverseUsername.text()
         print(uri)
-        auth = HTTPBasicAuth(Settings.cyverseUsername.text(),
-                             Settings.cyversePassword.text())
+        auth = HTTPBasicAuth(Settings.cyverseUsername,
+                             Settings.cyversePassword)
         print(auth.__dict__)
         r = requests.get(uri, auth=auth)
         if(r.status_code != 200):
