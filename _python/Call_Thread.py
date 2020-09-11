@@ -184,13 +184,12 @@ def start_sequence(self):
 
     except Exception as e:
         print(e)
-
-        if Settings.storage_mode and Settings.cyverse_authenticated:
+        print(" before Starting Cyverse Sync Thread")
+        if Settings.storage_mode:
             try:
-                if Settings.cyverse_authenticated:
-                    print("Starting Cyverse Sync Thread")
-                    self.Cyverse_Thread = Threads.Cyverse()
-                    self.Cyverse_Thread.start()
+                print("Starting Cyverse Sync Thread")
+                self.Cyverse_Thread = Threads.Cyverse()
+                self.Cyverse_Thread.start()
 
             except Exception as e:
                 print(e)
