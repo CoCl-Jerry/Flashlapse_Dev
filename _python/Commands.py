@@ -1,7 +1,5 @@
 import Settings
 import UI_Update
-from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtWidgets import QFileDialog
 
 from time import sleep
 
