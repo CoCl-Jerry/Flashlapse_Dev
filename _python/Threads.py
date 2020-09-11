@@ -254,16 +254,16 @@ class Sensor(QThread):
             if Settings.humidity is not None and Settings.temperature is not None:
                 self.update.emit()
                 if(Settings.log_sensor):
-                    now = datetime.now()
-                    dt_string = now.strftime("%d/%m/%Y_%H:%M:%S")
                     if(not os.path.isdir(Settings.prelog_dir)):
                         os.umask(0)
                         os.mkdir(Settings.prelog_dir)
                     if(not os.path.isdir(Settings.log_dir)):
                         os.umask(0)
                         os.mkdir(Settings.log_dir)
-                    log_file = open(Settings.log_dir + "/" + dt_string, "a+")
-                    os.chmod(Settings.log_dir + "/" + dt_string, 0o777)
+                    log_file = open(Settings.log_dir + "/log.txt", "a+")
+                    os.chmod(Settings.log_dir + "/log.txt", 0o777)
+                    now = datetime.now()
+                    dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
                     log_file.write(dt_string + "\t" + "{0: 0.1f}".format(Settings.temperature) + "\t" +
                                    "{0: 0.1f}".format(Settings.humidity) + "\r\n")
                     log_file.close()
