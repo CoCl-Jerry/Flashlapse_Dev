@@ -5,7 +5,6 @@ import Commands
 from PyQt5.QtWidgets import QFileDialog
 
 import requests
-import os
 from requests.auth import HTTPBasicAuth
 
 
@@ -110,8 +109,6 @@ def sensor_log(self):
     if not Settings.log_sensor:
         Settings.log_sensor = True
         self.log_pushButton.setText("STOP LOG")
-        if os.path.exists(Settings.log_dir + "/log.txt"):
-            os.remove(Settings.log_dir + "/log.txt")
 
     else:
         Settings.log_sensor = False
