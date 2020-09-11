@@ -1,14 +1,10 @@
 import Settings
 import Commands
 import os
-import sys
-import subprocess
-import smtplib
 import Adafruit_DHT
 
-from PyQt5 import QtCore
 from time import sleep
-from PyQt5.QtCore import QThread
+from PyQt5.QtCore import QThread, pyqtSignal
 from picamera import PiCamera
 
 
@@ -198,8 +194,8 @@ class Preview(QThread):
 
 
 class Image(QThread):
-    capturing = QtCore.pyqtSignal()
-    complete = QtCore.pyqtSignal()
+    capturing = pyqtSignal()
+    complete = pyqtSignal()
 
     def __init__(self):
         QThread.__init__(self)
@@ -241,7 +237,7 @@ class Image(QThread):
 
 
 class Sensor(QThread):
-    update = QtCore.pyqtSignal()
+    update = pyqtSignal()
 
     def __init__(self):
         QThread.__init__(self)
