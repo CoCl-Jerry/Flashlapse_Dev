@@ -1,10 +1,7 @@
 import Settings
 import UI_Update
 import Commands
-from PyQt5 import QtCore, QtGui, QtWidgets
 
-import os
-import re
 import requests
 from requests.auth import HTTPBasicAuth
 
@@ -66,8 +63,6 @@ def Cyverse_Save(self):
     # Not the smartest idea to store this in cleartext, but will need to edit this in the future to encrypt the password, or not save it
     file.write(self.cyversePassword_lineEdit.text())
     file.close()
-    # Only allow readable/writeable for current user
-    os.chmod(Settings.cyverse_data_path, 0o600)
 
 
 def Cyverse_Confirm(self):
