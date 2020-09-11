@@ -2,6 +2,7 @@ import Settings
 import Commands
 import os
 from PyQt5 import QtCore, QtGui, QtWidgets
+from QtGui import QImage
 
 
 def LED_validate(self):
@@ -12,7 +13,7 @@ def LED_validate(self):
 
 
 def desync(self):
-    error_img = PyQt5.QtGui.QImage("../_image/Error.png")
+    error_img = QtGui.QImage("../_image/Error.png")
     self.Image_Frame.setPixmap(QtGui.QPixmap(error_img))
     self.Control_Tab.setEnabled(False)
     self.Misc_Frame.setEnabled(False)
@@ -96,7 +97,7 @@ def motionPreset_update(self):
 
 def update_frame(self, file):
     self.Misc_Frame.setEnabled(True)
-    temp_img = PyQt5.QtGui.QImage(file)
+    temp_img = QtGui.QImage(file)
     self.Progress_Label.setText(
         "Progress: " + str(Settings.current + 1) + "/" + str(Settings.total))
     self.Progress_Bar.setValue(Settings.current + 1)
@@ -105,7 +106,7 @@ def update_frame(self, file):
 
 def update_frame_alt(self, file):
     self.Misc_Frame.setEnabled(True)
-    temp_img = PyQt5.QtGui.QImage(file)
+    temp_img = QtGui.QImage(file)
     self.Image_Frame.setPixmap(QtGui.QPixmap(temp_img))
     if(Settings.image_format):
         os.system("gpicview ../_temp/preview.jpg")
@@ -115,7 +116,7 @@ def update_frame_alt(self, file):
 
 def update_frame_snap(self, file):
     self.Misc_Frame.setEnabled(True)
-    temp_img = PyQt5.QtGui.QImage(file)
+    temp_img = QtGui.QImage(file)
     self.Image_Frame.setPixmap(QtGui.QPixmap(temp_img))
 
 
