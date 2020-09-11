@@ -120,6 +120,12 @@ class MainWindow(QMainWindow, FlashLapse_UI.Ui_MainWindow):
         self.IR_pushButton.clicked.connect(
             lambda: Commands.IR_toggle(self))
 
+        self.log_pushButton.clicked.connect(
+            lambda: Functions.sensor_log(self))
+
+        self.sample_spinBox.valueChanged.connect(
+            lambda: Functions.sample_change(self))
+
         self.cyverseDefault_pushButton.clicked.connect(
             lambda: Functions.Cyverse_Save(self))
         self.cyverseConfirm_pushButton.clicked.connect(

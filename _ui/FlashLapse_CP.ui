@@ -1966,7 +1966,7 @@ p, li { white-space: pre-wrap; }
        <x>13</x>
        <y>10</y>
        <width>211</width>
-       <height>129</height>
+       <height>111</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_12">
@@ -2051,9 +2051,9 @@ p, li { white-space: pre-wrap; }
      <property name="geometry">
       <rect>
        <x>9</x>
-       <y>150</y>
+       <y>130</y>
        <width>211</width>
-       <height>61</height>
+       <height>81</height>
       </rect>
      </property>
      <property name="frameShape">
@@ -2066,37 +2066,46 @@ p, li { white-space: pre-wrap; }
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>10</y>
+        <y>0</y>
         <width>191</width>
-        <height>51</height>
+        <height>61</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout_7">
-       <item row="0" column="1">
+       <item row="0" column="0">
         <widget class="QLabel" name="temperatureData_label">
          <property name="text">
           <string>NO_DATA</string>
          </property>
         </widget>
        </item>
-       <item row="0" column="0">
-        <widget class="QLabel" name="temperature_label">
+       <item row="1" column="0">
+        <widget class="QLabel" name="humidityData_label">
          <property name="text">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Temperature:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string>NO_DATA</string>
          </property>
         </widget>
        </item>
-       <item row="1" column="0">
-        <widget class="QLabel" name="humidity_label">
-         <property name="text">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Humidity:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       <item row="0" column="1">
+        <widget class="QSpinBox" name="sample_spinBox">
+         <property name="suffix">
+          <string>s /sample</string>
+         </property>
+         <property name="prefix">
+          <string/>
+         </property>
+         <property name="minimum">
+          <number>1</number>
+         </property>
+         <property name="maximum">
+          <number>120000</number>
          </property>
         </widget>
        </item>
        <item row="1" column="1">
-        <widget class="QLabel" name="humidityData_label">
+        <widget class="QPushButton" name="log_pushButton">
          <property name="text">
-          <string>NO_DATA</string>
+          <string>START LOG</string>
          </property>
         </widget>
        </item>

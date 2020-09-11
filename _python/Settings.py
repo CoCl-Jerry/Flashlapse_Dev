@@ -46,6 +46,9 @@ def init(self):
     global sch_running
     sch_running = False
 
+    global log_sensor
+    log_sensor = False
+
     global test_running
     test_running = False
 
@@ -82,6 +85,9 @@ def init(self):
     global AOI_H
     AOI_H = 1
 
+    global sample_time
+    sample_time = 1
+
     global livetime
     livetime = 1
     global x_resolution
@@ -97,6 +103,12 @@ def init(self):
 
     global cyverse_data_path
     cyverse_data_path = "../_temp/.cyverse_data.txt"
+
+    global prelog_dir
+    prelog_dir = "/home/pi/Desktop/sensor_log/"
+
+    global log_dir
+    log_dir = "/home/pi/Desktop/sensor_log/" + date
 
     global full_dir
     full_dir = ""

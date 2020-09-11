@@ -101,6 +101,22 @@ def img_format(self):
         Settings.image_format = 0
 
 
+def sample_change(self):
+    Settings.sample_time = self.sample_spinBox.value()
+
+
+def sensor_log(self):
+    if not Settings.log_sensor:
+        Settings.log_sensor = True
+        self.log_pushButton.setText("STOP LOG")
+
+    else:
+        Settings.log_sensor = False
+        self.log_pushButton.setText("START LOG")
+
+    Settings.log_duration = self.log_spinBox.value() * 60
+
+
 def start_lighting_preset(self):
     if not Settings.lightingPreset_running:
         Settings.germinationColor = self.germinationColor_comboBox.currentIndex()

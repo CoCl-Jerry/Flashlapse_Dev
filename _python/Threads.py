@@ -4,6 +4,7 @@ import os
 import Adafruit_DHT
 
 from time import sleep
+from datetime import datetime
 from PyQt5.QtCore import QThread, pyqtSignal
 from picamera import PiCamera
 
@@ -252,4 +253,16 @@ class Sensor(QThread):
                 Settings.DHT_SENSOR, 18)
             if Settings.humidity is not None and Settings.temperature is not None:
                 self.update.emit()
-            sleep(1)
+
+                if(not os.path.isdir(Settings.prelog_dir)):
+                    os.umask(0)
+                    os.mkdir(Settings.prelog_dir)
+                if(not os.path.isdir(Settings.log_dir)):
+                    os.umask(0)
+                    os.mkdir(Settings.log_dir)
+                log_file = open(Settings.log_dir + "/log.txt", "w")
+                os.chmod(Settings.log_dir + "/log.txt", 0o777)
+                log_file.write(datetime.now().strftime("%d/%m/%Y %H:%M:%S") + "\t" Settings.temperature + "\t" +
+                               Settings.humidity + "\t\n")
+
+            sleep(Settings.sample_time)
