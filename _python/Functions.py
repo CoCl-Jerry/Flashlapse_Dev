@@ -2,6 +2,8 @@ import Settings
 import UI_Update
 import Commands
 
+from PyQt5.QtWidgets import QFileDialog
+
 import requests
 from requests.auth import HTTPBasicAuth
 
