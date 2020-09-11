@@ -2,7 +2,7 @@
 import sys
 import time
 
-#import settings
+# import settings
 import Settings
 
 # import custom functions
@@ -22,7 +22,7 @@ from PyQt5.QtWidgets import *
 # import generated UI
 import FlashLapse_UI
 
-#global variables
+# global variables
 default_dir = "/home/pi/Desktop"
 date = time.strftime('%m_%d_%Y')
 
@@ -124,6 +124,14 @@ class MainWindow(QMainWindow, FlashLapse_UI.Ui_MainWindow):
 
         self.cyverseDefault_pushButton.clicked.connect(
             lambda: Functions.Cyverse_Save(self))
+        try:
+            with open(Settings.cyverse_data_path, "r") as fh:
+                self.cyverseUsername_lineEdit.setText(
+                    fh.readline().strip('\n'))
+                self.cyversePassword_lineEdit.setText(fh.readline().strip('\n')
+                fh.close()
+        except FileNotFoundError:
+            pass
 
 
 # main function
@@ -131,8 +139,8 @@ class MainWindow(QMainWindow, FlashLapse_UI.Ui_MainWindow):
 
 def main():
     # a new app instance
-    app = QApplication(sys.argv)
-    form = MainWindow()
+    app=QApplication(sys.argv)
+    form=MainWindow()
     form.show()
 
     # without this, the script exits immediately.
