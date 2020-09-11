@@ -6,6 +6,8 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 import os
 import re
+import requests
+from requests.auth import HTTPBasicAuth
 
 
 def Camera_update(self):
