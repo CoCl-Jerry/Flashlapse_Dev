@@ -69,6 +69,24 @@ def Cyverse_Save(self):
     os.chmod(Settings.cyverse_data_path, 0o600)
 
 
+def Cyverse_Confirm(self):
+    uri = "https://data.cyverse.org/dav/iplant/home/" + \
+        self.cyverseUsername_lineEdit.text()
+    print(uri)
+    auth = HTTPBasicAuth(self.cyverseUsername_lineEdit.text(),
+                         self.cyversePassword_lineEdit.text())
+    print(auth.__dict__)
+    r = requests.get(uri, auth=auth)
+    if(r.status_code != 200):
+        # Put actual logic in place to trigger a popup or some error message that flashes
+        print("ERR: Failed authentication!")
+        print(r)
+    else:
+        # Put actual logic in place to trigger a popup or some error message that flashes
+        print("Authentication success")
+    return
+
+
 def zoomSliderChange(self):
     self.xAxis_label.setText(
         "AXIS A: " + str(self.xAxis_horizontalSlider.sliderPosition() / 100))
