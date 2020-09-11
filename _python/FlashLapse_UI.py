@@ -119,7 +119,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_18.addWidget(self.Start_label)
         self.Start_spinBox = QtWidgets.QSpinBox(self.horizontalLayoutWidget_4)
         self.Start_spinBox.setMinimum(1)
-        self.Start_spinBox.setMaximum(19)
+        self.Start_spinBox.setMaximum(84)
         self.Start_spinBox.setObjectName("Start_spinBox")
         self.verticalLayout_18.addWidget(self.Start_spinBox)
         self.horizontalLayout_5.addLayout(self.verticalLayout_18)
@@ -802,10 +802,10 @@ class Ui_MainWindow(object):
         self.actionCreate_Timelapse.setObjectName("actionCreate_Timelapse")
 
         self.retranslateUi(MainWindow)
-        self.Control_Tab.setCurrentIndex(3)
+        self.Control_Tab.setCurrentIndex(0)
         self.lightingPreset_tabWidget.setCurrentIndex(0)
         self.motionPreset_tabWidget.setCurrentIndex(0)
-        self.storage_tabWidget.setCurrentIndex(0)
+        self.storage_tabWidget.setCurrentIndex(1)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -939,7 +939,7 @@ class Ui_MainWindow(object):
         self.storage_tabWidget.setTabText(self.storage_tabWidget.indexOf(self.local_tab), _translate("MainWindow", "Local"))
         self.cyverseUsername_lineEdit.setPlaceholderText(_translate("MainWindow", "Cyverse Username"))
         self.cyversePassword_lineEdit.setPlaceholderText(_translate("MainWindow", "Cyverse Password"))
-        self.cyverseConfirm_pushButton.setText(_translate("MainWindow", "Confirm CyVerse Credentials"))
+        self.cyverseConfirm_pushButton.setText(_translate("MainWindow", "Authenticate CyVerse Credentials"))
         self.cyverseDefault_pushButton.setText(_translate("MainWindow", "Save As Default"))
         self.storage_tabWidget.setTabText(self.storage_tabWidget.indexOf(self.cloud_tab), _translate("MainWindow", "CyVerse"))
         self.imageTitle_label.setText(_translate("MainWindow", "Image Sequence Title:"))
