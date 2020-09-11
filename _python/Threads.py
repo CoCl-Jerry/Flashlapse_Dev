@@ -315,13 +315,10 @@ class Cyverse(QThread):
 
         auth = HTTPBasicAuth(Settings.cyverseUsername,
                              Settings.cyversePassword)
-        print("auth date")
         requests.request(method='MKCOL', url=uri, auth=auth)
         uri = uri + '/' + Settings.date
-        print("auth cpu")
         requests.request(method='MKCOL', url=uri, auth=auth)
         uri = uri + '/' + Settings.cpuserial
-        print("auth name")
         requests.request(method='MKCOL', url=uri, auth=auth)
         uri = uri + '/' + Settings.sequence_name
         requests.request(method='MKCOL', url=uri, auth=auth)
@@ -334,7 +331,6 @@ class Cyverse(QThread):
                              headers=headers,
                              auth=auth,
                              data=fh)
-                print("auth img")
                 fh.close()
                 #os.system("rm " + Settings.file_list[0])
                 del Settings.file_list[0]

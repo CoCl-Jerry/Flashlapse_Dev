@@ -79,9 +79,9 @@ def timelapse_update(self):
         self.Misc_Frame.setEnabled(False)
     else:
         if(Settings.storage_mode):
-            self.startRoutines_pushButton.setText("Start CLOUD Image Sequence")
+            self.startRoutines_pushButton.setText("Start CLOUD Sequence")
         else:
-            self.startRoutines_pushButton.setText("Start LOCAL Image Sequence")
+            self.startRoutines_pushButton.setText("Start LOCAL Sequence")
         self.Misc_Frame.setEnabled(True)
         self.Progress_Label.setText(
             "Progress: 0/" + str(Settings.total))
