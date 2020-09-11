@@ -40,7 +40,7 @@ def startup():
 def deploy_lights(temp_list):
     for x in temp_list:
         send_CMD(x)
-        sleep(0.1)
+        sleep(1)
     current_CMD = "4\n"
     send_CMD(current_CMD)
 
