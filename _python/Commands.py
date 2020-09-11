@@ -1,7 +1,8 @@
 import Settings
 import UI_Update
-import PyQt5
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtWidgets import QFileDialog
+
 from time import sleep
 
 

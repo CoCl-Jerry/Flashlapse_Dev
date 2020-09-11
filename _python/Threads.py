@@ -6,9 +6,8 @@ import subprocess
 import smtplib
 import Adafruit_DHT
 
-from PyQt5 import QtCore
 from time import sleep
-from PyQt5.QtCore import QThread
+from PyQt5.QtCore import QThread, pyqtSignal
 from picamera import PiCamera
 
 

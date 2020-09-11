@@ -15,7 +15,6 @@ import Call_Thread
 import UI_Update
 
 # import Qt content
-import PyQt5
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import *
 
