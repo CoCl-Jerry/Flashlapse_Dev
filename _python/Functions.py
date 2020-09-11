@@ -3,10 +3,7 @@ import UI_Update
 import Commands
 
 from PyQt5.QtWidgets import QFileDialog
-
-import requests
 import os
-from requests.auth import HTTPBasicAuth
 
 
 def Camera_update(self):

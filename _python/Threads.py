@@ -2,6 +2,8 @@ import Settings
 import Commands
 import os
 import Adafruit_DHT
+import requests
+from requests.auth import HTTPBasicAuth
 
 from time import sleep
 from datetime import datetime
