@@ -129,7 +129,7 @@ class MainWindow(QMainWindow, FlashLapse_UI.Ui_MainWindow):
                 self.cyverseUsername_lineEdit.setText(
                     fh.readline().strip('\n'))
                 self.cyversePassword_lineEdit.setText(fh.readline().strip('\n')
-                fh.close()
+            fh.close()
         except FileNotFoundError:
             pass
 
