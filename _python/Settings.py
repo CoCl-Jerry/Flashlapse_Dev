@@ -34,6 +34,12 @@ def init(self):
     global current_CMD
     current_CMD = ""
 
+    global cyverseUsername
+    cyverseUsername = ""
+
+    global cyversePassword
+    cyversePassword = ""
+
     global cycle_running
     cycle_running = False
 

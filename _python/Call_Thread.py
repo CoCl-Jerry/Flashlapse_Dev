@@ -95,6 +95,8 @@ def start_snapshot(self):
 
 
 def CV_authenticate(self):
+    Settings.cyverseUsername = self.cyverseUsername_lineEdit.text()
+    Settings.cyversePassword = self.cyversePassword_lineEdit.text()
     try:
         self.Auth_Thread = Threads.Auth()
         self.Auth_Thread.started.connect(
