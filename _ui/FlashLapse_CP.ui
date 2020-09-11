@@ -240,41 +240,6 @@
        </layout>
       </widget>
      </widget>
-     <widget class="QFrame" name="image_frame">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>20</y>
-        <width>601</width>
-        <height>351</height>
-       </rect>
-      </property>
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-      <widget class="QLabel" name="coreImage">
-       <property name="geometry">
-        <rect>
-         <x>119</x>
-         <y>-1</y>
-         <width>350</width>
-         <height>350</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="pixmap">
-        <pixmap>../_image/graphics.png</pixmap>
-       </property>
-       <property name="scaledContents">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </widget>
      <widget class="QFrame" name="Ligting_frame">
       <property name="geometry">
        <rect>
@@ -595,6 +560,25 @@
       </property>
       <property name="text">
        <string>IR STATUS:OFF</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="coreImage">
+      <property name="geometry">
+       <rect>
+        <x>145</x>
+        <y>40</y>
+        <width>350</width>
+        <height>350</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap>../_image/graphics.png</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
       </property>
      </widget>
     </widget>
@@ -1995,7 +1979,7 @@ p, li { white-space: pre-wrap; }
        <x>13</x>
        <y>10</y>
        <width>211</width>
-       <height>129</height>
+       <height>111</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_12">

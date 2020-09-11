@@ -66,7 +66,7 @@ def Cyverse_Save(self):
     file.write(self.cyversePassword_lineEdit.text())
     file.close()
     # Only allow readable/writeable for current user
-    os.chmod(cyverse_data_path, 0o600)
+    os.chmod(Settings.cyverse_data_path, 0o600)
 
 
 def zoomSliderChange(self):
