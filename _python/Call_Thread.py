@@ -170,17 +170,6 @@ def start_sequence(self):
     except Exception as e:
         print(e)
 
-    if(Settings.storage_mode):
-        try:
-            self.Dropbox_Thread = Threads.Dropbox()
-            self.Dropbox_Thread.start()
-
-            self.Email_Thread = Threads.Email()
-            self.Email_Thread.start()
-
-        except Exception as e:
-            print(e)
-
 
 def sensor_init(self):
     try:

@@ -7,8 +7,6 @@ import smtplib
 import Adafruit_DHT
 
 from PyQt5 import QtCore
-from email.mime.multipart import MIMEMultipart
-from email.mime.text import MIMEText
 from time import sleep
 from PyQt5.QtCore import QThread
 from picamera import PiCamera
@@ -240,75 +238,6 @@ class Image(QThread):
             if not Settings.timelapse_running:
                 break
         Settings.timelapse_running = False
-
-
-class Dropbox(QThread):
-
-    def __init__(self):
-        QThread.__init__(self)
-        Settings.dropbox_running = True
-
-    def __del__(self):
-        self._running = False
-
-    def run(self):
-        os.system(
-            "/home/pi/Dropbox-Uploader/dropbox_uploader.sh mkdir /" + Settings.date)
-        os.system(
-            "/home/pi/Dropbox-Uploader/dropbox_uploader.sh mkdir /" + Settings.date + "/" + Settings.cpuserial)
-        os.system("/home/pi/Dropbox-Uploader/dropbox_uploader.sh mkdir /" + Settings.date + "/" +
-                  Settings.cpuserial + "/" + Settings.sequence_name)
-        Settings.link = str(subprocess.check_output(
-            "/home/pi/Dropbox-Uploader/dropbox_uploader.sh share /" + Settings.date + "/" + Settings.cpuserial, shell=True))
-        Settings.link = Settings.link.replace("b' > ", "")
-        Settings.link = Settings.link.split("\\")[0]
-        count = 0
-        while (count < Settings.total):
-            if (len(Settings.file_list) > 0):
-                os.system("/home/pi/Dropbox-Uploader/dropbox_uploader.sh upload " +
-                          Settings.file_list[0] + " /" + Settings.date + "/" + Settings.cpuserial + "/" + Settings.sequence_name)
-                os.system("rm " + Settings.file_list[0])
-                del Settings.file_list[0]
-                count += 1
-            if not Settings.dropbox_running:
-                break
-
-
-class Email(QThread):
-
-    def __init__(self):
-        QThread.__init__(self)
-        Settings.email_running = True
-
-    def __del__(self):
-        self._running = False
-
-    def run(self):
-        while(len(Settings.link) == 0):
-            sleep(1)
-
-        sys.path.insert(0, '../../HP')
-        import Email
-        body = None
-        fromaddr = "notification_noreply@cosecloud.com"
-        toaddr = Settings.email
-        msg = MIMEMultipart()
-        msg['From'] = fromaddr
-        msg['To'] = toaddr
-        msg['Subject'] = "COSE FLASHLAPSE NOTIFICATION"
-
-        body = "Hi " + Settings.email.split("@")[0] + "! \n\n" "Your Flashlapse image sequence " + Settings.sequence_name + \
-            " has been initiated, check it out here.\n\n" + \
-            Settings.link + "\n\nCOSE INSTRUMENTS"
-
-        msg.attach(MIMEText(body, 'plain'))
-        server = smtplib.SMTP('email-smtp.us-east-1.amazonaws.com', 587)
-        server.ehlo()
-        server.starttls()
-        server.ehlo()
-        server.login(Email.user, Email.password)
-        text = msg.as_string()
-        server.sendmail(fromaddr, toaddr, text)
 
 
 class Sensor(QThread):

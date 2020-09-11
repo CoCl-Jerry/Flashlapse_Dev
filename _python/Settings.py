@@ -55,12 +55,6 @@ def init(self):
     global timelapse_running
     timelapse_running = False
 
-    global dropbox_running
-    dropbox_running = False
-
-    global email_running
-    email_running = False
-
     global angle_1
     angle_1 = 0
     global angle_2
@@ -98,6 +92,10 @@ def init(self):
     global default_dir
     default_dir = "/home/pi/Desktop"
 
+    global
+
+    cyverse_data_path = "../_temp/.cyverse_data.txt"
+
     global full_dir
     full_dir = ""
 
@@ -118,9 +116,6 @@ def init(self):
 
     global current
     current = 0
-
-    global email
-    email = ""
 
     global storage_mode
     storage_mode = 0

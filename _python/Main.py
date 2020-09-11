@@ -39,11 +39,6 @@ class MainWindow(QMainWindow, FlashLapse_UI.Ui_MainWindow):
         Call_Thread.sensor_init(self)
         Commands.startup()
 
-        fh = open("../_temp/save_data.txt", "r")
-        self.Email_lineEdit.setText(fh.readline())
-        fh.close
-        Settings.email = self.Email_lineEdit.text()
-
         self.Start_spinBox.valueChanged.connect(
             lambda: UI_Update.LED_validate(self))
         self.End_spinBox.valueChanged.connect(
@@ -109,13 +104,6 @@ class MainWindow(QMainWindow, FlashLapse_UI.Ui_MainWindow):
         self.directory_pushButton.clicked.connect(
             lambda: Functions.select_directory(self))
 
-        self.Email_lineEdit.textChanged.connect(
-            lambda: Functions.Email_Change(self))
-        self.emailConfirm_pushButton.clicked.connect(
-            lambda: Functions.Email_Entered(self))
-        self.emailDefault_pushButton.clicked.connect(
-            lambda: Functions.Save_Email(self))
-
         self.storage_tabWidget.currentChanged.connect(
             lambda: UI_Update.validate_input(self))
         self.startRoutines_pushButton.clicked.connect(
@@ -133,6 +121,10 @@ class MainWindow(QMainWindow, FlashLapse_UI.Ui_MainWindow):
 
         self.IR_pushButton.clicked.connect(
             lambda: Commands.IR_toggle(self))
+
+        self.cyverseDefault_pushButton.clicked.connect(
+            lambda: Functions.Cyverse_Save(self))
+
 
 # main function
 
