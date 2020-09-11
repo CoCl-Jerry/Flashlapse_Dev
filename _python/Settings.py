@@ -92,7 +92,7 @@ def init(self):
     global default_dir
     default_dir = "/home/pi/Desktop"
 
-    global
+    global cyverse_data_path
 
     cyverse_data_path = "../_temp/.cyverse_data.txt"
 
