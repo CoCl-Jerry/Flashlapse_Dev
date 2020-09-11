@@ -127,12 +127,12 @@ def validate_input(self):
         self.startRoutines_pushButton.setEnabled(False)
     self.Progress_Label.setText(
         "Progress: " + str(Settings.current) + "/" + str(Settings.total))
-    if(self.storage_tabWidget.currentIndex() == 0):
-        Settings.storage_mode = 0
-        self.startRoutines_pushButton.setText("Start LOCAL Image Sequence")
-    else:
+    if(self.storage_tabWidget.currentIndex() == 1 and Settings.cyverse_authenticated):
         Settings.storage_mode = 1
-        self.startRoutines_pushButton.setText("Start CLOUD Image Sequence")
+        self.startRoutines_pushButton.setText("Start CLOUD Sequence")
+    else:
+        Settings.storage_mode = 0
+        self.startRoutines_pushButton.setText("Start LOCAL Sequence")
 
 
 def sensor_update(self):

@@ -269,3 +269,43 @@ class Sensor(QThread):
                     log_file.close()
 
             sleep(Settings.sample_time)
+
+
+class Cyverse(QThread):
+    def __init__(self):
+        QThread.__init__(self)
+        Settings.cyverse_running = True
+
+    def __del__(self):
+        self._running = False
+
+    def run(self):
+        base_uri = "https://data.cyverse.org/dav/iplant/home/"
+        uri = base_uri + Settings.cyverseUsername + "/" + 'FlashLapse'
+        headers = {'Content-Type': 'image/jpeg'}
+        auth = HTTPBasicAuth(Settings.cyverseUsername,
+                             Settings.cyversePassword)
+        requests.request(method='MKCOL', url=uri, auth=auth)
+        uri = uri + '/' + Settings.date
+        requests.request(method='MKCOL', url=uri, auth=auth)
+        uri = uri + '/' + Settings.cpuserial
+        requests.request(method='MKCOL', url=uri, auth=auth)
+        uri = uri + '/' + Settings.sequence_name
+        requests.request(method='MKCOL', url=uri, auth=auth)
+        count = 0
+        while (count < Settings.total):
+            if (len(Settings.file_list) > 0):
+                print("Cyverse Thread: File " + Settings.file_list[0])
+                fh = open(Settings.file_list[0], 'rb')
+                requests.put(url=uri + '/' + os.path.basename(Settings.file_list[0]),
+                             headers=headers,
+                             auth=auth,
+                             data=fh)
+                fh.close()
+                #os.system("rm " + Settings.file_list[0])
+                del Settings.file_list[0]
+                count += 1
+            if not Settings.cyverse_running:
+                break
+        Settings.cyverse_running = False
+        return

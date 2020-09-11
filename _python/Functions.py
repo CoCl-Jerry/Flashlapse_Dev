@@ -69,13 +69,13 @@ def Cyverse_Save(self):
 
 
 def Cyverse_Confirm(self):
-    uri = "https://data.cyverse.org/dav/iplant/home/" + \
+    url = "https://data.cyverse.org/dav/iplant/home/" + \
         self.cyverseUsername_lineEdit.text()
-    print(uri)
+    print(url)
     auth = HTTPBasicAuth(self.cyverseUsername_lineEdit.text(),
                          self.cyversePassword_lineEdit.text())
     print(auth.__dict__)
-    r = requests.get(uri, auth=auth)
+    r = requests.get(url, auth=auth)
     if(r.status_code != 200):
         # Put actual logic in place to trigger a popup or some error message that flashes
         print("ERR: Failed authentication!")
