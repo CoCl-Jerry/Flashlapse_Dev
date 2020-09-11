@@ -164,7 +164,7 @@ class Auth(QThread):
 
     def run(self):
         uri = "https://data.cyverse.org/dav/iplant/home/" + \
-            Settings.cyverseUsername.text()
+            Settings.cyverseUsername
         print(uri)
         auth = HTTPBasicAuth(Settings.cyverseUsername,
                              Settings.cyversePassword)
