@@ -72,7 +72,9 @@ def Cyverse_Save(self):
 
 
 def Cyverse_Confirm(self):
-    UI_Update.CV_authenticating(self)
+    self.storage_tabWidget.setEnabled(False)
+    self.cyverseConfirm_pushButton.setText(
+        "Authenticating CyVerse Credentials...")
     uri = "https://data.cyverse.org/dav/iplant/home/" + \
         self.cyverseUsername_lineEdit.text()
     print(uri)
@@ -84,11 +86,11 @@ def Cyverse_Confirm(self):
         # Put actual logic in place to trigger a popup or some error message that flashes
         print("ERR: Failed authentication!")
         print(r)
-        Settings.cyverse_authenticated = True
+        Settings.cyverse_authenticated = False
     else:
         # Put actual logic in place to trigger a popup or some error message that flashes
         print("Authentication success")
-        Settings.cyverse_authenticated = False
+        Settings.cyverse_authenticated = True
     UI_Update.CV_authenticated(self)
 
 
