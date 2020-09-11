@@ -72,7 +72,6 @@ def Cyverse_Save(self):
 
 
 def Cyverse_Confirm(self):
-    UI_Update.CV_authenticating(self)
     uri = "https://data.cyverse.org/dav/iplant/home/" + \
         self.cyverseUsername_lineEdit.text()
     print(uri)
