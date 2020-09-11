@@ -139,4 +139,4 @@ def sensor_update(self):
     self.temperatureData_label.setText(
         "Temp={0:0.1f}°C".format(Settings.temperature))
     self.humidityData_label.setText(
-        "Temp={0:0.1f}%".format(Settings.humidity))
+        "Humdi={0:0.1f}%".format(Settings.humidity))

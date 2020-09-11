@@ -264,7 +264,9 @@ class Sensor(QThread):
                 os.chmod(Settings.log_dir + "/log.txt", 0o777)
                 now = datetime.now()
                 dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
-                log_file.write(dt_string + "\t" + str(Settings.temperature) + "\t" +
-                               str(Settings.humidity) + "\n")
+                log_file.write(dt_string + "\t" + "{0: 0.1f}".format(Settings.temperature) + "\t" +
+                               "{0: 0.1f}".format(Settings.humidity) + "\n")
+
+                {0: 0.1f}.format(Settings.temperature)
 
             sleep(Settings.sample_time)

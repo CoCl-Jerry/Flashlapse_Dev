@@ -114,8 +114,6 @@ def sensor_log(self):
         Settings.log_sensor = False
         self.log_pushButton.setText("START LOG")
 
-    Settings.log_duration = self.log_spinBox.value() * 60
-
 
 def start_lighting_preset(self):
     if not Settings.lightingPreset_running:
