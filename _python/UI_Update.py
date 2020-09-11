@@ -2,7 +2,7 @@ import Settings
 import Commands
 import os
 from PyQt5 import QtCore, QtGui, QtWidgets
-from QtGui import QImage
+from PyQt5.QtGui import QImage
 
 
 def LED_validate(self):
