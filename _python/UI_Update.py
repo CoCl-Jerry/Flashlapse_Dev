@@ -19,6 +19,22 @@ def desync(self):
     self.Misc_Frame.setEnabled(False)
 
 
+def CV_authenticating(self):
+    self.storage_tabWidget.setEnabled(False)
+    self.cyverseConfirm_pushButton.setText(
+        "Authenticating CyVerse Credentials...")
+
+
+def CV_authenticated(self):
+    self.storage_tabWidget.setEnabled(True)
+    if Settings.cyverse_authenticated:
+        self.cyverseConfirm_pushButton.setText(
+            "CyVerse Credentials Authentication Successful")
+    else:
+        self.cyverseConfirm_pushButton.setText(
+            "CyVerse Credentials Authentication Failed")
+
+
 def cycle_update(self):
     if Settings.cycle_running:
         self.confirmCycle_pushButton.setText("TERMINATE")

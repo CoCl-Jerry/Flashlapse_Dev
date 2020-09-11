@@ -55,6 +55,9 @@ def init(self):
     global timelapse_running
     timelapse_running = False
 
+    global cyverse_authenticated
+    cyverse_authenticated = False
+
     global angle_1
     angle_1 = 0
     global angle_2
