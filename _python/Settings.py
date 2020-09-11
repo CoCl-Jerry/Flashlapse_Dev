@@ -84,9 +84,9 @@ def init(self):
 
     global livetime
     livetime = 1
-    global x_res
+    global x_resolution
     x_resolution = 2464
-    global y_res
+    global y_resolution
     y_resolution = 2464
 
     global sequence_name
