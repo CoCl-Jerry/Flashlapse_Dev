@@ -101,6 +101,9 @@ def init(self):
     global default_dir
     default_dir = "/home/pi/Desktop"
 
+    global date
+    date = time.strftime('%m_%d_%Y')
+
     global cyverse_data_path
     cyverse_data_path = "../_temp/.cyverse_data.txt"
 
@@ -112,9 +115,6 @@ def init(self):
 
     global full_dir
     full_dir = ""
-
-    global date
-    date = time.strftime('%m_%d_%Y')
 
     global interval
     interval = 10
