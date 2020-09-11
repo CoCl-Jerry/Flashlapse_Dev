@@ -289,11 +289,8 @@ class Sensor(QThread):
                     if(not os.path.isdir(Settings.log_dir)):
                         os.umask(0)
                         os.mkdir(Settings.log_dir)
-                    timec = str(datetime.datetime.now().time())
-                    log_file = open(Settings.log_dir + "/" +
-                                    timec + ".txt", "a+")
-                    os.chmod(Settings.log_dir + "/" +
-                             timec + ".txt", 0o777)
+                    log_file = open(Settings.log_dir + "/log.txt", "a+")
+                    os.chmod(Settings.log_dir + "/log.txt", 0o777)
                     now = datetime.now()
                     dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
                     log_file.write(dt_string + "\t" + "{0: 0.1f}".format(Settings.temperature) + "\t" +
@@ -327,18 +324,22 @@ class Cyverse(QThread):
         requests.request(method='MKCOL', url=uri, auth=auth)
         count = 0
         while (count < Settings.total):
-            if (len(Settings.file_list) > 0):
-                print("Cyverse Thread: File " + Settings.file_list[0])
-                fh = open(Settings.file_list[0], 'rb')
-                requests.put(url=uri + '/' + os.path.basename(Settings.file_list[0]),
-                             headers=headers,
-                             auth=auth,
-                             data=fh)
-                fh.close()
-                #os.system("rm " + Settings.file_list[0])
-                del Settings.file_list[0]
-                count += 1
+            try:
+                if (len(Settings.file_list) > 0):
+                    print("Cyverse Thread: File " + Settings.file_list[0])
+                    fh = open(Settings.file_list[0], 'rb')
+                    requests.put(url=uri + '/' + os.path.basename(Settings.file_list[0]),
+                                 headers=headers,
+                                 auth=auth,
+                                 data=fh)
+                    fh.close()
+                    os.system("rm " + Settings.file_list[0])
+                    del Settings.file_list[0]
+                    count += 1
+
+            except Exception as e:
+                print(e)
+
             if not Settings.cyverse_running:
                 break
-        Settings.cyverse_running = False
-        return
+            Settings.cyverse_running = False
