@@ -77,7 +77,7 @@
      <enum>QTabWidget::Rounded</enum>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>3</number>
     </property>
     <widget class="QWidget" name="lighting_tab">
      <attribute name="title">
@@ -1643,7 +1643,7 @@ p, li { white-space: pre-wrap; }
        </rect>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="local_tab">
        <attribute name="title">
@@ -1894,9 +1894,9 @@ p, li { white-space: pre-wrap; }
    <widget class="QFrame" name="Misc_Frame">
     <property name="geometry">
      <rect>
-      <x>860</x>
+      <x>849</x>
       <y>420</y>
-      <width>390</width>
+      <width>411</width>
       <height>220</height>
      </rect>
     </property>
@@ -1911,7 +1911,7 @@ p, li { white-space: pre-wrap; }
       <rect>
        <x>240</x>
        <y>10</y>
-       <width>138</width>
+       <width>161</width>
        <height>114</height>
       </rect>
      </property>
@@ -2046,9 +2046,9 @@ p, li { white-space: pre-wrap; }
      </property>
      <property name="geometry">
       <rect>
-       <x>240</x>
+       <x>230</x>
        <y>140</y>
-       <width>141</width>
+       <width>171</width>
        <height>71</height>
       </rect>
      </property>
@@ -2075,7 +2075,7 @@ p, li { white-space: pre-wrap; }
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>0</y>
+        <y>10</y>
         <width>191</width>
         <height>61</height>
        </rect>
