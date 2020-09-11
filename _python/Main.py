@@ -16,7 +16,7 @@ import UI_Update
 
 # import Qt content
 from PyQt5 import QtCore, QtGui, QtWidgets
-# from PyQt5.QtWidgets import
+from PyQt5.QtWidgets import QMainWindow, QApplication
 
 # import generated UI
 import FlashLapse_UI
