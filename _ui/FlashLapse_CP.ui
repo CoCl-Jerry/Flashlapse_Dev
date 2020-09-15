@@ -258,27 +258,27 @@
       <widget class="QLabel" name="Address_label">
        <property name="geometry">
         <rect>
-         <x>110</x>
-         <y>0</y>
+         <x>230</x>
+         <y>-5</y>
          <width>141</width>
          <height>31</height>
         </rect>
        </property>
        <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;LED Address&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;LED Settings&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
       </widget>
       <widget class="QLabel" name="color_label">
        <property name="geometry">
         <rect>
-         <x>110</x>
-         <y>65</y>
+         <x>230</x>
+         <y>70</y>
          <width>141</width>
          <height>31</height>
         </rect>
        </property>
        <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Color Setting&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Color Settings&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
       </widget>
       <widget class="QWidget" name="horizontalLayoutWidget_4">
@@ -296,12 +296,15 @@
           <item>
            <widget class="QLabel" name="Start_label">
             <property name="text">
-             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Start LED:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Start LED: &lt;span style=&quot; font-weight:600;&quot;&gt;[1 , 85]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
             </property>
            </widget>
           </item>
           <item>
            <widget class="QSpinBox" name="Start_spinBox">
+            <property name="suffix">
+             <string/>
+            </property>
             <property name="prefix">
              <string># </string>
             </property>
@@ -309,7 +312,7 @@
              <number>1</number>
             </property>
             <property name="maximum">
-             <number>84</number>
+             <number>85</number>
             </property>
            </widget>
           </item>
@@ -320,12 +323,15 @@
           <item>
            <widget class="QLabel" name="End_label">
             <property name="text">
-             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;End LED:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;End LED: &lt;span style=&quot; font-weight:600;&quot;&gt;[2 , 86]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
             </property>
            </widget>
           </item>
           <item>
            <widget class="QSpinBox" name="End_spinBox">
+            <property name="suffix">
+             <string/>
+            </property>
             <property name="prefix">
              <string># </string>
             </property>
@@ -333,10 +339,10 @@
              <number>2</number>
             </property>
             <property name="maximum">
-             <number>85</number>
+             <number>86</number>
             </property>
             <property name="value">
-             <number>85</number>
+             <number>86</number>
             </property>
            </widget>
           </item>
@@ -347,7 +353,7 @@
           <item>
            <widget class="QLabel" name="BRT_lable">
             <property name="text">
-             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Brightness:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Brightness: &lt;span style=&quot; font-weight:600;&quot;&gt;[0 , 150]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
@@ -357,13 +363,13 @@
           <item>
            <widget class="QSpinBox" name="BRT_spinBox">
             <property name="suffix">
-             <string> %</string>
+             <string> % </string>
             </property>
             <property name="minimum">
              <number>1</number>
             </property>
             <property name="maximum">
-             <number>200</number>
+             <number>150</number>
             </property>
             <property name="value">
              <number>20</number>
@@ -1643,7 +1649,7 @@ p, li { white-space: pre-wrap; }
        </rect>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="local_tab">
        <attribute name="title">
@@ -1698,60 +1704,76 @@ p, li { white-space: pre-wrap; }
        <attribute name="title">
         <string>CyVerse</string>
        </attribute>
-       <widget class="QWidget" name="verticalLayoutWidget_11">
+       <widget class="QFrame" name="Cyverse_frame">
         <property name="geometry">
          <rect>
-          <x>20</x>
-          <y>10</y>
-          <width>721</width>
-          <height>111</height>
+          <x>9</x>
+          <y>9</y>
+          <width>741</width>
+          <height>121</height>
          </rect>
         </property>
-        <layout class="QVBoxLayout" name="verticalLayout_4" stretch="0,0,0,0">
-         <item>
-          <widget class="QLineEdit" name="cyverseUsername_lineEdit">
-           <property name="enabled">
-            <bool>true</bool>
-           </property>
-           <property name="placeholderText">
-            <string>Cyverse Username</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLineEdit" name="cyversePassword_lineEdit">
-           <property name="echoMode">
-            <enum>QLineEdit::Password</enum>
-           </property>
-           <property name="placeholderText">
-            <string>Cyverse Password</string>
-           </property>
-           <property name="clearButtonEnabled">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="cyverseConfirm_pushButton">
-           <property name="text">
-            <string>Authenticate CyVerse Credentials</string>
-           </property>
-           <property name="autoRepeatDelay">
-            <number>300</number>
-           </property>
-           <property name="default">
-            <bool>false</bool>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="cyverseDefault_pushButton">
-           <property name="text">
-            <string>Save As Default</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QWidget" name="verticalLayoutWidget_11">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>0</y>
+           <width>721</width>
+           <height>121</height>
+          </rect>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_4" stretch="0,0,0,0">
+          <item>
+           <widget class="QLineEdit" name="cyverseUsername_lineEdit">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
+            <property name="placeholderText">
+             <string>Cyverse Username</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="cyversePassword_lineEdit">
+            <property name="echoMode">
+             <enum>QLineEdit::Password</enum>
+            </property>
+            <property name="placeholderText">
+             <string>Cyverse Password</string>
+            </property>
+            <property name="clearButtonEnabled">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="cyverseConfirm_pushButton">
+            <property name="text">
+             <string>Authenticate CyVerse Credentials</string>
+            </property>
+            <property name="autoRepeatDelay">
+             <number>300</number>
+            </property>
+            <property name="default">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="cyverseDefault_pushButton">
+            <property name="text">
+             <string>Save As Default</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
        </widget>
       </widget>
      </widget>
